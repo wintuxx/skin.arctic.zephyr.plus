@@ -51,7 +51,7 @@
                         
                         <!--CHANGES-->
                         <control type="image">
-                            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                             <width>PosterW</width>
                             <height>PosterW</height>
                             <fadetime>100</fadetime>
