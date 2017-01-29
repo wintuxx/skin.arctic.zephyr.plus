@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="1128" type="dialog">
+<onload condition="Skin.HasSetting(global.showvideo)">Skin.ToggleSetting(global.showvideo)</onload>
+<onload condition="!Skin.HasSetting(furniture.nowplaying)">Skin.ToggleSetting(furniture.nowplaying)</onload>
+        
+<onload condition="[String.Contains(ListItem.Property(platform),MAME) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + !IsEmpty(ListItem.trailer)">PlayMedia($INFO[ListItem.trailer],1)</onload>
+  
+    <defaultcontrol always="true">8</defaultcontrol>
+	<zorder>0</zorder>
+	<onload>ClearProperty(content)</onload>
+
+    <controls>
+	<control type="group">	
+		<control type="image">
+				<animation effect="slide" start="0,-1080" end="0" delay="0" time="750" tween="quadratic" easing="out">WindowOpen</animation>
+                <animation effect="slide" start="0,0" end="0,-1080" time="300" tween="quadratic" easing="in">WindowClose</animation>
+                <animation effect="slide" start="0,-1080" end="0" delay="0" time="750" tween="quadratic" easing="out">Visible</animation>
+                <animation effect="slide" start="0,0" end="0,-1080" time="300" tween="quadratic" easing="in">Hidden</animation>		
+					<height>600</height>
+					<width>600</width>
+					<top>0</top>
+					<right>SidePad</right>
+					<texture>$INFO[ListItem.Property(platform),special://skin/extras/consoles/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+		</control>
+	
+	<visible>!VideoPlayer.IsFullscreen</visible>
+            <animation type="Conditional" reversible="true" condition=" Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
+                <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+            </animation>
+            <control type="group">
+                
+                <animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+                <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+                <animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+                <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+                <include>View_50_SidePoster</include>
+            </control>
+            <control type="group">
+               
+                <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+                <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+                <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+                <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+          
+                <!-- Arrows -->
+                <control type="group">
+				<visible>ControlGroup(9000).HasFocus() + !String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+                    <include>Animation.DelayFadeIn</include>
+                    <centerbottom>258</centerbottom>
+                    <height>16</height>
+                    <control type="image">
+                        <centerleft>524</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3" flipx="true">common/arrow-small-right.png</texture>
+                    </control>
+                    <control type="image">
+                        <centerright>64</centerright>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3" flipx="false">common/arrow-small-right.png</texture>
+                    </control>
+                </control>
+                <control type="group">
+                    <include>Animation.DelayFadeIn</include>
+                    <visible>Control.HasFocus(51) | [Control.HasFocus(9501) + Control.IsVisible(9501)]</visible>
+                    <centerbottom>366</centerbottom>
+                    <height>16</height>
+                    <control type="image">
+                        <centerleft>524</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3" flipx="true">common/arrow-small-right.png</texture>
+                    </control>
+                    <control type="image">
+                        <centerright>64</centerright>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3" flipx="false">common/arrow-small-right.png</texture>
+                    </control>
+                </control>
+				
+                <control type="button" id ="5">
+                    <width>1</width>
+                    <height>1</height>
+                    <visible allowhiddenfocus="true">false</visible>
+                </control>
+				
+                <control type="button" id ="9601">
+                    <width>1</width>
+                    <height>1</height>
+                    <visible allowhiddenfocus="true">false</visible>
+                    <onback>9000</onback>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                </control>
+
+                <!-- Control Buttons -->
+                <control type="grouplist" id="9000">
+                   <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus() + !String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+                    <bottom>224</bottom>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <height>68</height>
+                    <bottom>33</bottom>
+                    <itemgap>16</itemgap>
+                    <onup condition="Control.IsVisible(50)">51</onup>
+                    <onup condition="Control.IsVisible(9501)">9501</onup>
+                    <onup condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</onup>
+                    <ondown condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</ondown>
+                    <orientation>horizontal</orientation>
+					<control type="button" id ="8">
+                        <description>Launch</description>
+                        <label>518</label>
+						<include>DefInfoButtons</include>
+						<onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
+				
+                    </control>
+                  					
+                   <control type="button" id="9">
+                        <description>Trailer button</description>
+                        <label>20410</label>
+						<onclick>PlayMedia($INFO[ListItem.trailer])</onclick>
+                        <include>DefInfoButtons</include>  
+                        <visible>!IsEmpty(ListItem.trailer) + !String.Contains(ListItem.Property(platform),MAME)</visible>
+                    </control>
+					
+					<control type="button" id="10">
+                        <description>Artwork</description>
+                        <label>Artwork</label>
+                        <include>DefInfoButtons</include>
+						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
+						<onclick>SetProperty(content,3)</onclick>
+                        <onclick>SetFocus(9501)</onclick> 
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !String.Contains(ListItem.Property(platform),"MAME") + !String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+                    </control>
+					
+					<control type="button" id="17">
+                        <description>Artwork</description>
+                        <label>Artwork</label>
+                        <include>DefInfoButtons</include>
+						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
+						<onclick>SetProperty(content,4)</onclick>
+                        <onclick>SetFocus(9501)</onclick> 
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | String.Contains(ListItem.Property(platform),"MAME")</visible>
+                    </control>
+					
+					
+					<control type="button" id="11">
+                        <description>Map</description>
+                        <label>Map</label>
+                        <include>DefInfoButtons</include>
+						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
+                        <onclick>SetProperty(content,1)</onclick>
+                        <onclick>SetFocus(9501)</onclick>        
+                        <visible>!IsEmpty(ListItem.Art(map))</visible>
+                    </control>
+					
+					
+					<control type="button" id="12">
+                        <description>Manual</description>
+                        <label>Manual</label>
+                        <include>DefInfoButtons</include>
+						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
+                        <onclick>SetProperty(content,5)</onclick>
+                        <onclick>SetFocus(9501)</onclick>
+						<visible>!IsEmpty(ListItem.Art(manual)</visible>
+                    </control>
+					
+                </control>
+				
+				
+						
+				<control type="group" id="1">
+					<visible>Control.IsVisible(50) | [String.IsEqual(Window.Property(content),1) + !Container(9501).IsUpdating]</visible>	
+					<include>Animation.DelayFadeIn</include>
+																
+					<control type="group">
+						<top>PosterPad</top>
+						<left>540</left>
+						<right>SidePad</right>
+						<height>PosterH</height>
+					
+
+                    
+						<control type="group">
+						<control type="label">
+					        <right>-127</right>
+					        <width>300</width>
+							<height>PosterH</height>
+					        <align>center</align>
+					        <aligny>center</aligny>
+					        <label>Game Map</label>
+		       
+		        			<angle>270</angle>
+		        			<font>Mini</font>
+							<textcolor>Dark2</textcolor>
+	  					</control>
+					
+					
+						<control type="image">
+                                <bottom>0</bottom>
+                                <height>PosterH</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                        </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(map)]</texture>
+                            </control>
+                           
+                        </control>
+					</control>
+				</control>	
+				
+				<control type="group" id="3"> <!--no MAME-->
+					<visible>Control.IsVisible(50) | [String.IsEqual(Window.Property(content),3) + !Container(9501).IsUpdating]</visible>
+					<include>Animation.DelayFadeIn</include>
+					
+					<control type="group">
+						<top>PosterPad</top>
+						<left>540</left>
+						   
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Boxfront</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							<top>330</top>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Boxback</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+
+						
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
+                            </control>
+                           
+                        </control>
+					</control>
+					
+					<control type="group">
+						<top>PosterPad</top>
+						<left>980</left>
+						
+					   
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Title</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+							
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(title)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+						<top>330</top>
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Snapshot</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(snap)]</texture>
+                            </control>
+                        </control>
+					</control>
+					
+					
+					
+					
+					<control type="group">
+						<top>PosterPad</top>
+						<left>1420</left>
+						
+					   
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Clearlogo</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+						<top>330</top>
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-130</right>
+						        <width>315</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Disc • Cartridge</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(cartridge)]</texture>
+                            </control> 
+                        </control>
+					</control>
+				</control>
+
+				<control type="group" id="4"> <!--MAME launcher-->
+					<visible>Control.IsVisible(50) | [String.IsEqual(Window.Property(content),4) + !Container(9501).IsUpdating]</visible>
+					
+					<include>Animation.DelayFadeIn</include>
+							
+							
+					<control type="group">
+						<top>PosterPad</top>
+						<left>540</left>
+						
+					   
+						<control type="group">
+							<height>482</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>482</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Cabinet</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>482</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+							<height>150</height>
+							<width>420</width>
+							<top>497</top>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>150</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>CPanel</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>150</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+
+						
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
+                            </control>
+                           
+                        </control>
+					</control>
+					
+					<control type="group">
+						<top>PosterPad</top>
+						<left>980</left>
+						
+					   
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Title</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+							
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(title)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+						<top>330</top>
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Snapshot</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(snap)]</texture>
+                            </control>
+                        </control>
+					</control>
+					
+					<control type="group">
+						<top>PosterPad</top>
+						<left>1420</left>
+						
+						<control type="group">
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-76</right>
+						        <width>200</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>Clearlogo</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            </control>
+                           
+                        </control>
+						
+						
+						<control type="group">
+						<top>330</top>
+							<height>315</height>
+							<width>420</width>
+							
+							<control type="label">
+						        <right>-130</right>
+						        <width>315</width>
+								<height>315</height>
+						        <align>center</align>
+								<aligny>center</aligny>
+						    
+						        <label>PCB</label>
+			       
+			        			<angle>270</angle>
+			        			<font>Mini</font>
+								<textcolor>Dark2</textcolor>
+	  						</control>
+					
+					
+							<control type="image">
+                                <bottom>0</bottom>
+                                <height>315</height>
+                                <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                            </control>
+					
+					
+                            <control type="image">
+								<left>17</left>
+								<left>17</left>
+								<top>17</top>
+								<bottom>17</bottom>
+								<right>50</right>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(cartridge)]</texture>
+                            </control> 
+                        </control>
+					</control>
+				</control>
+				
+				
+                <control type="group">
+                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <bottom>224</bottom>
+                    <top>PosterPad</top>
+							
+			<!--videowindow-->		
+					<control type="videowindow">
+							<top>30</top>
+							<right>0</right>
+							<height>330</height>
+							<width>440</width>
+							<width>100%</width>
+							<height>100%</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[String.Contains(ListItem.Property(platform),"MAME") | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + !IsEmpty(ListItem.trailer)</visible>
+					</control>
+
+					<control type="group">
+						<control type="image">
+							<right>0</right>
+							<width>410</width>
+							<height>410</height>
+							<aspectratio scalediffuse="false" align="left" aligny="top">keep</aspectratio>
+							<texture>$INFO[ListItem.Art(cartridge)]</texture>
+						</control>   
+
+						<control type="image">
+							<right>0</right>
+							<width>410</width>
+							<height>410</height>
+							<aspectratio scalediffuse="false" align="left" aligny="top">keep</aspectratio>
+							<texture>$INFO[ListItem.Art(discart)]</texture>
+						</control>
+						<visible>!String.Contains(ListItem.Property(platform),"MAME") + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+					</control>
+					
+					 <control type="image">
+						<top>150</top>
+                        <right>0</right>
+                        <width>460</width>
+                        <height>460</height>
+						<aspectratio scalediffuse="false" align="left" aligny="top">keep</aspectratio>
+                        <texture>http://mamedev.org/_include/img/logo-mame.png</texture>
+						<visible>[String.Contains(ListItem.Property(platform),"MAME") | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + IsEmpty(ListItem.trailer) + !String.IsEqual(ListItem.Label,"MAME")</visible>
+                    </control>
+
+					
+					<control type="grouplist">
+					<left>30</left>
+					<top>60</top>
+						<orientation>horizontal</orientation>
+							<usecontrolcoords>true</usecontrolcoords>
+						<control type="image">
+								<width>40</width>
+								<height>93</height>
+								<left>-7</left>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="Dark1">flags/$VAR[Flagstar1].png</texture>
+							</control>
+							<control type="image">
+								<width>40</width>
+								<height>93</height>
+								<left>-20</left>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="Dark1">flags/$VAR[Flagstar2].png</texture>
+							</control>
+							<control type="image">
+								<width>40</width>
+								<height>93</height>
+								<left>-20</left>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="Dark1">flags/$VAR[Flagstar3].png</texture>
+							</control>
+							<control type="image">
+								<width>40</width>
+								<height>93</height>
+								<left>-20</left>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="Dark1">flags/$VAR[Flagstar4].png</texture>
+							</control>
+							<control type="image">
+								<width>40</width>
+								<height>93</height>
+								<left>-18</left>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="Dark1">flags/$VAR[Flagstar5].png</texture>
+							</control>
+						</control>
+					
+					
+					
+                    <control type="grouplist">
+                        <left>30</left>
+                        <right>30</right>
+                        <itemgap>0</itemgap>
+
+                        <control type="label">
+                            <description>Header Label</description>
+                            <textcolor>Dark1</textcolor>
+                            <include>DefDialogInfoHeader</include>
+                            <label>$INFO[ListItem.Title]</label>
+                        </control>
+						
+						<control type="group">
+                            <height>70</height>
+                            <control type="label">
+                                <posy>-10</posy>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Tagline]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[345][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Year]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[563][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Rating]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						
+						<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[515][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Genre]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[572][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Studio]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]Platform[/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(platform)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+
+					<!--<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]Fav Status[/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(AEL_Fav_stat)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]Fclone Status[/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(AEL_PClone_stat)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+					
+						<control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]Fclone Status[/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(AEL_NoIntro_stat)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>-->
+
+						
+                    </control>
+					
+					<control type="group">
+					  <top>430</top>  
+                        <control type="textbox">	
+                            <width>100%</width>
+                            <height>120</height>
+                            <font>Tiny</font>
+							<label>$VAR[LabelPlotBox]</label>
+                            <textcolor>Dark2</textcolor>
+                            <align>justify</align>
+                        </control>
+					</control>
+                </control>
+			</control>
+        </control>
+
+        <control type="group">
+            <visible>Control.HasFocus(9601)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            
+            <control type="image" description="Background">
+                <include>Dimensions_Fullscreen</include>
+                <texture colordiffuse="Background">common/bg.jpg</texture>
+                <animation effect="fade" start="100" end="95" condition="true">Conditional</animation>
+            </control>
+
+            <control type="image" description="clearlogo">
+                <visible>Skin.HasSetting(furniture.logo)</visible>
+                <centertop>120</centertop>
+                <centerleft>50%</centerleft>
+                <width>400</width>
+                <height>100</height>
+                <aspectratio align="center">keep</aspectratio>
+                <texture background="true">$VAR[ClearLogoTopVar]</texture>
+            </control>
+        </control>
+
+        <control type="group">
+            <left>SidePad</left>
+            <right>SidePad</right>
+            <top>PosterPad</top>
+            <height>640</height>
+            <visible>Control.HasFocus(9601)</visible>
+            <include>Animation.FadeIn.Slide</include>
+            <include>Animation.FadeOut</include>
+            
+            
+            <control type="label">
+                <description>header label</description>
+                <left>60</left>
+                <right>60</right>
+                <posy>60</posy>
+                <font>EpisodeNumber</font>
+                <textcolor>Dark1</textcolor>
+                <height>45</height>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+
+            <control type="textbox">
+                <description>textarea</description>
+                <left>60</left>
+                <right>60</right>
+                <top>150</top>
+                <bottom>0</bottom>
+                <align>justify</align>
+                <font>Medium</font>
+                <textcolor>Dark1</textcolor>
+                <label>$INFO[ListItem.Tagline,[B],[/B][CR][CR]]$INFO[ListItem.Plot]</label>
+            </control>
+        </control>
+    </controls>
+<onunload condition="Player.HasVideo">PlayerControl(Stop)</onunload>
+<onunload condition="Skin.HasSetting(furniture.nowplaying)">Skin.ToggleSetting(furniture.nowplaying)</onunload>
+<onunload condition="!Skin.HasSetting(global.showvideo)">Skin.ToggleSetting(global.showvideo)</onunload>
+</window>
