@@ -216,6 +216,23 @@
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
         <value>SD</value>
     </variable>
+    
+    <!--CHANGED-->
+	 <variable name="Clone">
+        <value condition="String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Parent)">Parent</value>
+        <value condition="String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Clone)">Clone</value>
+        <value condition="String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Unknown)">Unknown</value>
+    </variable>
+	
+	<variable name="NoIntro">
+        <value condition="String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Have)">Have</value>
+        <value condition="String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Miss)">Miss</value>
+        <value condition="String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Added)">Added</value>
+		<value condition="String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Unknown)">Unknown</value>
+        <value condition="String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_None)">None</value>
+    </variable>
+    <!--END-->
+    
     <variable name="PlayerTitle">
         <value condition="!Player.HasVideo">$INFO[MusicPlayer.TrackNumber,,. ]$INFO[MusicPlayer.Title]</value>
         <value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,,. ]$INFO[VideoPlayer.ChannelName]</value>
