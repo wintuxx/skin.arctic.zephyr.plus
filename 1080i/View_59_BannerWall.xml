@@ -115,7 +115,6 @@
                 </focusedlayout>
             </control>
             <include>Furniture_Scrollbar</include>
-
         </control>
     </include>
 </includes>
