@@ -531,7 +531,8 @@
                     <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                 </control>
                 <control type="wraplist" id="51">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                    <visible>ubstring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
                     <left>0</left>
                     <right>0</right>
                     <top>0</top>
@@ -591,6 +592,21 @@
                         <label>$VAR[LabelYear]</label>
                         <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                     </control>
+                    
+                    <!--CHANGES-->
+                    <control type="label">
+                        <posx>30</posx>
+                        <width>200</width>
+                        <font>Small</font>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <textcolor>PanelWhite70</textcolor>
+                        <selectedcolor>PanelWhite70</selectedcolor>
+                        <label>$INFO[ListItem.Year]</label>
+                        <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    </control>
+                    <!--END-->
+                    
                     <control type="label">
                         <posx>120</posx>
                         <right>370</right>
@@ -600,7 +616,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
-                        <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
+                        <animation effect="slide" start="0" end="-90" time="0" condition="![substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)| Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
                         <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
                     </control>
                     <control type="label">
