@@ -1,4 +1,4 @@
-emulator.<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <includes>
     <include name="View_50_List">
