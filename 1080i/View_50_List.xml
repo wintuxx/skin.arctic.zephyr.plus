@@ -259,7 +259,8 @@
             <visible>Control.IsVisible(550)</visible>
             <control type="group">
                 <control type="list" id="550">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | ![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)]]</visible>
+                 <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>   
+                 <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | ![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)]]</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListSquareX</left>
@@ -314,7 +315,7 @@
                     <height>PosterH</height>
                     <texture border="5" colordiffuse="FF181818">common/box.png</texture>
                 </control>
-                <control type="image">
+-                <control type="image">
                     <width>PosterH</width>
                     <height>PosterH</height>
                     <fadetime>100</fadetime>
@@ -349,7 +350,23 @@
             <label>$VAR[LabelYear]</label>
             <visible>Container.Content(movies)</visible>
         </control>
-        <control type="label">
+        
+     <!--CHANGED-->
+         <control type="label">
+            <posx>30</posx>
+            <width>200</width>
+            <font>Small</font>
+            <aligny>center</aligny>
+            <height>64</height>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Year]</label>
+            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+        </control>
+     
+     
+     
+     <control type="label">
             <posx>120</posx>
             <width>auto</width>
             <aligny>center</aligny>
