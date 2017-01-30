@@ -61,9 +61,9 @@
                         <!--END-->
                         
                         <control type="group">
-                            <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !stringcompare(ListItem.Label,..)</visible>
+                            <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-
+				
                             <control type="image">
                                 <left>379</left>
                                 <centertop>32</centertop>
@@ -73,6 +73,31 @@
                                 <texture>$VAR[PercentWatched]</texture>
                             </control>
                         </control>
+		
+	        <!--CHANGED-->
+		<control type="group">
+		<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+		   <control type="image">
+                        <left>379</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control>
+                    <control type="image">
+                        <left>379</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture>$VAR[PosterPercentWatched]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control> 
+		 </control>
+		<!--END-->
+			    
                         <control type="image">
                             <left>-24</left>
                             <top>-24</top>
@@ -121,7 +146,7 @@
                         <!--END-->
                         
                         <control type="group">
-                            <visible>!stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                            <visible>!stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 
                             <control type="image">
@@ -133,6 +158,31 @@
                                 <texture>$VAR[PercentWatched]</texture>
                             </control>
                         </control>
+		
+		<!--CHANGED-->
+		<control type="group">
+		<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+		   <control type="image">
+                        <left>379</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control>
+                    <control type="image">
+                       <left>379</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture>$VAR[PosterPercentWatched]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control> 
+		 </control>   
+		<!--END-->	    
+			    
                         <control type="image">
                             <left>-24</left>
                             <top>-24</top>
@@ -168,7 +218,7 @@
                 </control>
 
                 <control type="label">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <visible>Container.Content(musicvideos) | Container.Content(albums)</visible>
                     <font>Tiny</font>
                     <label>$INFO[ListItem.Artist]$INFO[ListItem.Genre,  •  ]</label>
                     <textcolor>Dark1</textcolor>
@@ -195,7 +245,7 @@
                     <aligny>top</aligny>
                 </control>
 
-				<control type="textbox">
+		<control type="textbox">
                     <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                     <font>Tiny</font>
                     <label>$VAR[LabelPlotBox]</label>
@@ -203,7 +253,7 @@
                     <height>68</height>
                     <align>justify</align>
                 </control>
-				<!--END-->
+	   <!--END-->
   
             </control>
         </control>
