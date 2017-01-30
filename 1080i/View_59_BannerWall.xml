@@ -7,7 +7,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(59)</visible>
             <control type="panel" id="59">
-                <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(movies) | Container.Content(tvshows)</visible>
                 <top>200</top>
                 <right>70</right>
                 <left>70</left>
@@ -114,7 +115,6 @@
                 </focusedlayout>
             </control>
             <include>Furniture_Scrollbar</include>
-
         </control>
     </include>
 </includes>

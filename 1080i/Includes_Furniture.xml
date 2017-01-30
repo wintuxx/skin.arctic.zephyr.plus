@@ -200,7 +200,7 @@
             <visible>!Skin.HasSetting(furniture.flags)</visible>
             <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
             <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
-            <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+            <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
             <visible>!stringcompare(ListItem.Label,..)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -213,7 +213,7 @@
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
-                <visible>substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)</visible>
+                <visible>[substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)]+ !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !+ !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                 <centertop>50%</centertop>
                 <width>64</width>
                 <height>64</height>
@@ -299,6 +299,68 @@
                 <visible>Skin.HasSetting(furniture.numericrating)</visible>
             </control>
 
+            <!--CHANGES-->
+            <control type="image">
+                <width>52</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/platform.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(platform)) + !String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+            </control>
+            <control type="label">
+                <width>auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+				<label>$INFO[ListItem.Property(platform)]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(platform)) + !String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+            </control>
+            
+            <control type="image">
+                <width>52</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/clone.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_PClone_stat))</visible>
+            </control>
+            <control type="label">
+                <width>auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+				<label>$VAR[Clone]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_PClone_stat))</visible>
+            </control>
+			
+			<control type="image">
+                <width>52</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/intro.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_NoIntro_stat))</visible>
+            </control>
+            <control type="label">
+                <width>auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+				<label>$VAR[NoIntro]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_NoIntro_stat))</visible>
+            </control>
+            <!--END-->
+            
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -327,6 +389,27 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoCodec)</visible>
             </control>
+            
+            <!--CHANGES-->
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.Property(AEL_PClone_stat),flags/games/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_PClone_stat))</visible>
+            </control>
+			
+			<control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.Property(AEL_NoIntro_stat),flags/games/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.Property(AEL_NoIntro_stat))</visible>
+            </control>
+            <!--END-->
+            
             <control type="image">
                 <width>88</width>
                 <height>64</height>

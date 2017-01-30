@@ -4,6 +4,7 @@
     <include name="View_52_BigList"><include>View_52_BigList_SinglePane</include></include>
     <include name="View_52_BigList_SinglePane">
         <description>List View (id=52)</description>
+        <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(52)</visible>
@@ -41,6 +42,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(52)</visible>
             <control type="panel" id="52">
+               <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo> 
                 <top>PosterPad</top>
                 <left>SidePad</left>
                 <width>1770</width>
@@ -113,6 +115,22 @@
             <textcolor>Dark1</textcolor>
             <label>$INFO[ListItem.Label2]</label>
         </control>
+        
+        <!--CHANGED-->
+		<control type="label">
+            <left>130</left>
+            <top>10</top>
+            <right>100</right>
+            <align>right</align>
+            <height>100</height>
+            <aligny>center</aligny>
+            <font>Small</font>
+            <textcolor>Dark1</textcolor>
+            <label>$INFO[ListItem.Rating]</label>
+			<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+        </control>
+        <!--END-->
+        
         <control type="image">
             <centerright>58</centerright>
             <centertop>60</centertop>
@@ -170,6 +188,22 @@
             <textcolor>Light1</textcolor>
             <label>$INFO[ListItem.Label2]</label>
         </control>
+        
+        <!--CHANGED-->
+		<control type="label">
+            <left>130</left>
+            <top>10</top>
+            <right>100</right>
+            <align>right</align>
+            <height>100</height>
+            <aligny>center</aligny>
+            <font>Small</font>
+            <textcolor>Light1</textcolor>
+            <label>$INFO[ListItem.Rating]</label>
+			<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+        </control>
+        <!--END-->
+        
         <control type="image">
             <centerright>58</centerright>
             <centertop>60</centertop>

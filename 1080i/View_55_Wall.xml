@@ -6,7 +6,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1332</width>
@@ -119,7 +120,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1135</width>
@@ -234,7 +236,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <left>70</left>
@@ -348,6 +351,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(555)</visible>
             <control type="panel" id="555">
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
                 <top>206</top>
                 <right>70</right>
                 <left>70</left>
@@ -360,7 +364,7 @@
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31258">list</viewtype>
                 <scrolltime tween="quadratic">400</scrolltime>
-                <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)</visible>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)</visible>
                 <itemlayout height="337" width="444">
                     <control type="image">
                         <left>0</left>
@@ -421,7 +425,22 @@
                         <align>left</align>
                         <textcolor>Dark2</textcolor>
                         <label>$VAR[LabelYear]</label>
+                        <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                     </control>
+                    
+                    <!--CHANGED-->
+                    <control type="label">
+                        <font>Mini</font>
+                        <left>15</left>
+                        <right>15</right>
+                        <bottom>3</bottom>
+                        <align>left</align>
+                        <textcolor>Dark2</textcolor>
+                        <label>$INFO[ListItem.Year]</label>
+                        <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible> 
+                    </control>
+                    <!--END-->
+                    
                     <control type="label">
                         <font>Mini</font>
                         <left>15</left>
@@ -507,7 +526,22 @@
                         <align>left</align>
                         <textcolor>Dark2</textcolor>
                         <label>$VAR[LabelYear]</label>
+                        <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                     </control>
+                    
+                    <!--CHANGED-->
+                     <control type="label">
+                        <font>Mini</font>
+                        <left>15</left>
+                        <right>15</right>
+                        <bottom>3</bottom>
+                        <align>left</align>
+                        <textcolor>Dark2</textcolor>
+                        <label>$INFO[ListItem.Year]</label>
+                         <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    </control>
+                    <!--END-->
+                    
                     <control type="label">
                         <font>Mini</font>
                         <left>15</left>
