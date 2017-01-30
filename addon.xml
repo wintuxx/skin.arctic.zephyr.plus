@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
-    id="skin.arctic.zephyr"
+    id="skin.arctic.zephyr.Gaming.MOD"
     version="2.3.7"
     name="Arctic: Zephyr"
-    provider-name="jurialmunkey">
+    provider-name="jurialmunkey - Mod by KODser">
     <requires>
         <import addon="xbmc.gui" version="5.12.0"/>
         <import addon="script.skinshortcuts" version="0.4.0"/>
@@ -53,8 +53,8 @@
         <description lang="ru">Arctic: Zephyr это третий виток обложки Arctic, созданной jurialmunkey. Arctic старается быть простой, опрятной и минималистичной.</description>
         <platform>all</platform>
         <license>Creative Commons Non Commercial 3.0 License</license>
-        <forum>http://forum.kodi.tv/forumdisplay.php?fid=221</forum>
-        <source>https://github.com/jurialmunkey/skin.arctic.zephyr</source>
+       <forum>http://forum.kodi.tv/showthread.php?tid=303774</forum>
+        <source>https://github.com/KODser/skin.arctic.zephyr.Gaming.MOD</source>
         <assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
