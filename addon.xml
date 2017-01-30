@@ -2,7 +2,7 @@
 <addon
     id="skin.arctic.zephyr.Gaming.MOD"
     version="2.3.7"
-    name="Arctic: Zephyr"
+    name="Arctic: Zephyr Gaming MOD"
     provider-name="jurialmunkey - Mod by KODser">
     <requires>
         <import addon="xbmc.gui" version="5.12.0"/>
