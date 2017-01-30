@@ -61,7 +61,7 @@
                         <!--END-->
                         
                         <control type="group">
-                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                            <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !stringcompare(ListItem.Label,..)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 
                             <control type="image">
@@ -121,7 +121,7 @@
                         <!--END-->
                         
                         <control type="group">
-                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                            <visible>!stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 
                             <control type="image">
