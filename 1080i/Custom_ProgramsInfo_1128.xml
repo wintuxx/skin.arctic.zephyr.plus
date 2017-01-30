@@ -21,7 +21,7 @@
 					<width>600</width>
 					<top>0</top>
 					<right>SidePad</right>
-					<texture>$INFO[ListItem.Property(platform),special://skin/extras/consoles/,.png]</texture>
+					<texture>$INFO[Skin.String(gamesartworklocation)]controllers/$INFO[ListItem.Property(platform),/,.png]</texture>
 					<aspectratio>keep</aspectratio>
 					<visible>String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
 		</control>
@@ -959,7 +959,7 @@
                             </control>
                         </control>
 
-					<control type="group">
+					<!--<control type="group">
                     
                             <height>36</height>
                             <control type="label">
@@ -1023,7 +1023,7 @@
                                 <label fallback="19055">$INFO[ListItem.Property(AEL_NoIntro_stat)]</label>
                                 <aligny>center</aligny>
                             </control>
-                        </control>
+                        </control>-->
 
 						
                     </control>
