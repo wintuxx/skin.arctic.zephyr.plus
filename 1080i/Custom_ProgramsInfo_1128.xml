@@ -959,7 +959,7 @@
                             </control>
                         </control>
 
-					<!--<control type="group">
+					<control type="group">
                     
                             <height>36</height>
                             <control type="label">
@@ -1023,7 +1023,7 @@
                                 <label fallback="19055">$INFO[ListItem.Property(AEL_NoIntro_stat)]</label>
                                 <aligny>center</aligny>
                             </control>
-                        </control>-->
+                        </control>
 
 						
                     </control>
