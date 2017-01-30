@@ -392,6 +392,15 @@
                         <selected>Skin.HasSetting(furniture.overlayinfo)</selected>
                         <onclick>Skin.ToggleSetting(furniture.overlayinfo)</onclick>
                     </control>
+					
+					<control type="button" id="9279" description="Set Games extra Art Dir">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Games Extra Art Path</label>
+						<label2>$INFO[Skin.String(gamesartworklocation)]</label2>
+						<onclick>Skin.SetPath(gamesartworklocation)</onclick>
+		            </control>	
 
 
 
