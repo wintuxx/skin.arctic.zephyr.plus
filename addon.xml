@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
-    id="skin.arctic.zephyr.AEL.AML.mod"
+    id="skin.arctic.zephyr.Gaming.MOD"
     version="2.3.6"
-    name="Arctic: Zephyr AEL AML mod"
+    name="Arctic: Zephyr Gaming MOD"
     provider-name="jurialmunkey - Mod by KODser">
     <requires>
         <import addon="xbmc.gui" version="5.12.0"/>
