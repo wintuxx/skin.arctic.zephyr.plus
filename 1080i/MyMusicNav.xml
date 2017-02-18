@@ -8,6 +8,7 @@
     <controls>
 
         <include>GlobalBackground</include>
+		<include>Furniture_Music_Flags</include>
         <include>Furniture_Header</include>
         <include>Furniture_Clock</include>
         <include>Furniture_Weather</include>
@@ -87,6 +88,11 @@
                     <label>653</label>
                     <include>DefContextButton</include>
                 </control>
+				
+				<include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnUp" value="20" />
+                    <param name="PlayerControlsOnDown" value="1802" />
+                </include>
             </control>
         </control>
 

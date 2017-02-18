@@ -72,6 +72,11 @@
                     <onclick>ActivateWindow(playercontrols)</onclick>
                     <visible>Player.HasMedia</visible>
                 </control>
+				
+				<include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnUp" value="98" />
+                    <param name="PlayerControlsOnDown" value="1802" />
+                </include>
             </control>
         </control>
 

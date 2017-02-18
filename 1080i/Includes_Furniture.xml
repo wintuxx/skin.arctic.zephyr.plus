@@ -125,76 +125,168 @@
         <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,8)">star5</value>
         <value>star0</value>
     </variable>
-
+	
+	<!-- MusicFlagsOSD -->
+    <variable name="MusicFlagstarOSD1">
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,1)">star10</value>
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,0)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstarOSD2">
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,3)">star10</value>
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,2)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstarOSD3">
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,5)">star10</value>
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,4)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstarOSD4">
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,7)">star10</value>
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,6)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstarOSD5">
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,9)">star10</value>
+        <value condition="IntegerGreaterThan(MusicPlayer.UserRating,8)">star5</value>
+        <value>star0</value>
+    </variable>
+	
+	
+	
     <!-- MusicFlags -->
-    <variable name="MusicFlagstar5">
-        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="MusicFlagstar4">
-        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="MusicFlagstar3">
-        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
+    <variable name="MusicFlagstar1">
+        <value condition="IntegerGreaterThan(ListItem.UserRating,1)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,0)">star5</value>
         <value>star0</value>
     </variable>
     <variable name="MusicFlagstar2">
-        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating2.png)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,3)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,2)">star5</value>
         <value>star0</value>
     </variable>
-    <variable name="MusicFlagstar1">
-        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating2.png)">star10</value>
-        <value condition="StringCompare(ListItem.StarRating,rating1.png)">star10</value>
+    <variable name="MusicFlagstar3">
+        <value condition="IntegerGreaterThan(ListItem.UserRating,5)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,4)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar4">
+        <value condition="IntegerGreaterThan(ListItem.UserRating,7)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,6)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar5">
+        <value condition="IntegerGreaterThan(ListItem.UserRating,9)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.UserRating,8)">star5</value>
         <value>star0</value>
     </variable>
 
-    <!-- MusicOSDFlags -->
-    <variable name="OSDMusicFlagstar5">
-        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="OSDMusicFlagstar4">
-        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="OSDMusicFlagstar3">
-        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="OSDMusicFlagstar2">
-        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating2.png)">star10</value>
-        <value>star0</value>
-    </variable>
-    <variable name="OSDMusicFlagstar1">
-        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating2.png)">star10</value>
-        <value condition="StringCompare(Player.StarRating,rating1.png)">star10</value>
-        <value>star0</value>
-    </variable>
+    
     <variable name="ClearLogoTopVar">
         <value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!IsEmpty(Container(9500).ListItem.Art(clearlogo))">$INFO[Container(9500).ListItem.Art(clearlogo)]</value>
         <value condition="!IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">$INFO[Container(9500).ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition= "Window.IsActive(music)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
     </variable>
+	
+	<include name="Furniture_Music_Flags">
+        <control type="grouplist">
+		<visible>Container.Content(albums) | Container.Content(songs)</visible>
+        <visible>!Skin.HasSetting(furniture.flags)</visible>
+		<include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <left>SidePad</left>
+            <centerbottom>NavBarPad</centerbottom>
+            <width>1400</width>
+            <height>120</height>
+            <orientation>horizontal</orientation>
+            <align>left</align>
+            <itemgap>24</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+			<control type="image">
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar1].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar2].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar3].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar4].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar5].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="label">
+                <left>-16</left>
+                <width min="48">auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Rating]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+			
+			<control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + Container.Content(songs)</visible>
+            </control>
+			
+			<control type="image">
+                <width>48</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/audio.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + Container.Content(songs)</visible>
+            </control>
+            <control type="label">
+                <width>auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.FileExtension]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + Container.Content(songs)</visible>
+            </control>
+	</control>
+	</include>
+	
     <include name="Furniture_Flags">
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.flags)</visible>
@@ -213,7 +305,7 @@
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
-                <visible>[substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)]+ !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !+ !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                <visible>[substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)]+ !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)+ !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                 <centertop>50%</centertop>
                 <width>64</width>
                 <height>64</height>
@@ -236,9 +328,28 @@
                     <width>64</width>
                     <height>64</height>
                     <texture colordiffuse="Light1">flags/sets.png</texture>
-                    <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
+                    <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible> 
                 </control>
             </control>
+			
+			  <control type="group">
+                <visible>[substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + String.IsEqual(ListItem.Property(AEL_MultiDisc),MultiDisc_True)</visible>
+                <centertop>50%</centertop>
+                <width>64</width>
+                <height>64</height>
+                <control type="image" description="button back">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture border="32" colordiffuse="Dark1">common/circle.png</texture>
+                </control>
+
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Light1">flags/sets.png</texture>
+                </control>
+            </control>
+			
             <control type="image">
                 <width>88</width>
                 <height>64</height>
@@ -293,7 +404,7 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[ListItem.Rating]</label>
+                <label>$INFO[ListItem.UserRating]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
                 <visible>Skin.HasSetting(furniture.numericrating)</visible>
@@ -361,7 +472,7 @@
             </control>
             <!--END-->
             
-            <control type="image">
+           <control type="image">
                 <width>48</width>
                 <height>64</height>
                 <centertop>50%</centertop>
@@ -380,7 +491,7 @@
                 <textcolor>Dark2</textcolor>
                 <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
             </control>
-
+        
             <control type="image">
                 <width>88</width>
                 <height>64</height>
@@ -1100,6 +1211,7 @@
             <aspectratio align="center">keep</aspectratio>
             <texture background="true">$VAR[ClearLogoTopVar]</texture>
         </control>
+		
         <control type="grouplist">
             <top>SidePad</top>
             <left>SidePad</left>

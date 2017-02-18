@@ -48,10 +48,19 @@
         <control type="group">
             <visible>!Window.IsVisible(musicosd)</visible>
             <visible>Window.IsVisible(script-cu-lrclyrics-main.xml) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo</visible>
-            <animation effect="slide" start="0,110" end="0" time="150" tween="quadratic">Visible</animation>
-            <animation effect="slide" start="0,110" end="0" time="150" tween="quadratic">WindowOpen</animation>
-            <animation effect="slide" end="0,110" start="0" time="150" tween="quadratic">Hidden</animation>
-            <animation effect="slide" end="0,110" start="0" time="150" tween="quadratic">WindowClose</animation>
+            <animation effect="slide" start="0,240" end="0" time="200" tween="quadratic">Visible</animation>
+            <animation effect="slide" start="0,240" end="0" time="200" tween="quadratic">WindowOpen</animation>
+            <animation effect="slide" end="0,240" start="0" time="200" tween="quadratic">Hidden</animation>
+            <animation effect="slide" end="0,240" start="0" time="200" tween="quadratic">WindowClose</animation>
+			
+			<control type="image">
+			 <right>10</right>
+			 <height>120</height>
+			 <aspectratio align="right" aligny="bottom">keep</aspectratio>
+             <bottom>120</bottom>
+			 <texture>$INFO[Player.Folderpath]../logo.png</texture>
+			</control>
+			
             <control type="image">
                 <top>110r</top>
                 <width>100%</width>

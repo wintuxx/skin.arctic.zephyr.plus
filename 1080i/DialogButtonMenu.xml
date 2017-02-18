@@ -146,7 +146,7 @@
                     <label>31195</label>
                     <onclick>ReloadSkin()</onclick>
                 </control>
-
+				
             </control>
 
         </control>

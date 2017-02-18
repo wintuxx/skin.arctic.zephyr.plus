@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
-<window id="1128" type="dialog">
+<window id="1130" type="dialog">
 <onload condition="Skin.HasSetting(global.showvideo)">Skin.ToggleSetting(global.showvideo)</onload>
 <onload condition="!Skin.HasSetting(furniture.nowplaying)">Skin.ToggleSetting(furniture.nowplaying)</onload>
 <onload condition="[String.Contains(ListItem.Property(platform),MAME) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + !IsEmpty(ListItem.trailer)">PlayMedia($INFO[ListItem.trailer],1)</onload>
 
     <defaultcontrol always="true">9000</defaultcontrol>
 
-    <zorder>0</zorder>
+	<zorder>0</zorder>
     <onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(movie.Fanart,home)</onload>
     <controls>
-
-        <control type="group">
-			<control type="image">
+      <control type="group">
+		<control type="image">
 				<animation effect="slide" start="0,-1080" end="0" delay="0" time="750" tween="quadratic" easing="out">WindowOpen</animation>
                 <animation effect="slide" start="0,0" end="0,-1080" time="300" tween="quadratic" easing="in">WindowClose</animation>
                 <animation effect="slide" start="0,-1080" end="0" delay="0" time="750" tween="quadratic" easing="out">Visible</animation>
@@ -31,6 +30,8 @@
             <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
                 <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
             </animation>
+
+            <!-- Poster-->
             <control type="group">
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
@@ -38,8 +39,10 @@
                 <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
                 <animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
                 <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">Hidden</animation>
-                <include>View_50_SidePoster</include>
+                <include>View_50_SidePoster_Rectangle</include>
             </control>
+
+            <!-- Main -->
             <control type="group">
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
@@ -47,7 +50,7 @@
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
                 <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
-					
+				
 				<control type="image" id="1234">
 					<description>Studio Logo</description>
 					<posy>80</posy>
@@ -60,15 +63,30 @@
 					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
 					<visible>![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord)</visible>
 				</control>
-
-                <!-- Arrows -->
-                <control type="group">
+				
+				<control type="button" id ="5">
+                    <width>1</width>
+                    <height>1</height>
+                    <visible allowhiddenfocus="true">false</visible>
+                </control>
+                <control type="button" id ="9601">
+                    <width>1</width>
+                    <height>1</height>
+                    <visible allowhiddenfocus="true">false</visible>
+                    <onback>9000</onback>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                </control>
+				
+				<control type="group">
                     <include>Animation.DelayFadeIn</include>
                     <visible>ControlGroup(9000).HasFocus()</visible>
                     <centerbottom>258</centerbottom>
                     <height>16</height>
                     <control type="image">
-                        <centerleft>524</centerleft>
+                        <centerleft>734</centerleft>
                         <width>16</width>
                         <height>16</height>
                         <texture colordiffuse="Dark3" flipx="true">common/arrow-small-right.png</texture>
@@ -83,10 +101,10 @@
 				<control type="group">
                     <include>Animation.DelayFadeIn</include>
                     <visible>Control.HasFocus(51) | [Control.HasFocus(9501) + Control.IsVisible(9501)]</visible>
-                    <centerbottom>366</centerbottom>
+                    <centerbottom>400</centerbottom>
                     <height>16</height>
                     <control type="image">
-                        <centerleft>524</centerleft>
+                        <centerleft>734</centerleft>
                         <width>16</width>
                         <height>16</height>
                         <texture colordiffuse="Dark3" flipx="true">common/arrow-small-right.png</texture>
@@ -104,7 +122,7 @@
                     <centerbottom>288</centerbottom>
                     <height>16</height>
                     <control type="image">
-                        <centerleft>524</centerleft>
+                        <centerleft>734</centerleft>
                         <width>16</width>
                         <height>16</height>
                         <texture colordiffuse="Dark3" flipx="true">common/arrow-small-right.png</texture>
@@ -116,31 +134,17 @@
                         <texture colordiffuse="Dark3" flipx="false">common/arrow-small-right.png</texture>
                     </control>
                 </control>
-                <control type="button" id ="5">
-                    <width>1</width>
-                    <height>1</height>
-                    <visible allowhiddenfocus="true">false</visible>
-                </control>
-                <control type="button" id ="9601">
-                    <width>1</width>
-                    <height>1</height>
-                    <visible allowhiddenfocus="true">false</visible>
-                    <onback>9000</onback>
-                    <onup>9000</onup>
-                    <ondown>9000</ondown>
-                    <onleft>9000</onleft>
-                    <onright>9000</onright>
-                </control>
 
                 <!-- Control Buttons -->
                 <control type="grouplist" id="9000">
-                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
+				 <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
                     <bottom>224</bottom>
-                    <left>540</left>
+                    <left>ListSquareX</left>
                     <right>SidePad</right>
                     <height>68</height>
                     <bottom>33</bottom>
                     <itemgap>16</itemgap>
+                    <ondown>9000</ondown>
                     <onup condition="Control.IsVisible(50) + !Skin.HasSetting(noextendedinfoforcast)">51</onup>
                     <onup condition="Control.IsVisible(50) + Skin.HasSetting(noextendedinfoforcast)">50</onup>
                     <onup condition="Control.IsVisible(9501)">9501</onup>
@@ -151,6 +155,7 @@
                     <control type="button" id ="8">
                         <description>Launch ann Open</description>
 						<label>$VAR[LaunchOpen]</label>
+						<width>260</width>
 						<include>DefInfoButtons</include>
 						<onclick condition="!String.IsEqual(ListItem.Property(platform),ListItem.Label)">RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
 						<onclick condition="String.IsEqual(ListItem.Property(platform),ListItem.Label)">Action(Close)</onclick>
@@ -161,8 +166,8 @@
                         <description>Trailer button</description>
                         <label>20410</label>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
-						<onclick>Close</onclick>
 						<onclick>PlayMedia($INFO[ListItem.trailer])</onclick>
+						<width>260</width>
                         <include>DefInfoButtons</include>  
                         <visible>!IsEmpty(ListItem.trailer) + !String.Contains(ListItem.Property(platform),MAME)</visible>
                     </control>
@@ -170,6 +175,7 @@
                     <control type="button" id="10">
                         <description>Artwork</description>
                         <label>1</label>
+						<width>260</width>
                         <include>DefInfoButtons</include>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
 						<onclick>SetProperty(content,3)</onclick>
@@ -180,6 +186,7 @@
                     <control type="button" id="17">
                         <description>Artwork</description>
                         <label>1</label>
+						<width>260</width>
                         <include>DefInfoButtons</include>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
 						<onclick>SetProperty(content,4)</onclick>
@@ -193,6 +200,7 @@
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
                         <onclick>SetProperty(content,2)</onclick>
                         <onclick>SetFocus(9501)</onclick>
+						<width>260</width>
                         <include>DefInfoButtons</include>
                     </control>
 
@@ -200,15 +208,16 @@
                         <description>Options</description>
                         <label>33063</label>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
+						<width>260</width>
                         <include>DefInfoButtons</include>
 						<onclick>Action(ContextMenu,1)</onclick>
                     </control>
                 </control>
 				
-                <control type="label">
+				<control type="label">
                     <right>SidePad</right>
                     <left>540</left>
-                    <bottom>264</bottom>
+                    <bottom>290</bottom>
                     <height>50</height>
                     <font>Mini</font>
                     <scroll>true</scroll>
@@ -219,25 +228,12 @@
                     <visible>Control.HasFocus(9501)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
-                <control type="label">
-                    <right>SidePad</right>
-                    <left>540</left>
-                    <bottom>264</bottom>
-                    <height>50</height>
-                    <font>Mini</font>
-                    <scroll>true</scroll>
-                    <textcolor>Dark3</textcolor>
-                    <label>$INFO[Container(50).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(50).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(50).NumPages,, $LOCALIZE[31243]]</label>
-                    <aligny>center</aligny>
-                    <align>right</align>
-                    <visible>Control.HasFocus(50) | Control.HasFocus(51)</visible>
-                    <include>Animation.DelayFadeIn</include>
-                </control>
+
                 <control type="label">
                     <visible>Control.IsVisible(50) | [!IsEmpty(Window.Property(content))+ String.IsEqual(Window.Property(content),2) + !Container(9501).IsUpdating]</visible>
-                    <left>540</left>
+                    <left>ListSquareX</left>
                     <right>SidePad</right>
-                    <top>260</top>
+                    <top>280</top>
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
@@ -245,9 +241,10 @@
                     <include>Animation.DelayFadeIn</include>
                 </control>
 
+                <!-- Info -->
                 <control type="group">
-                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
-                    <left>540</left>
+					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <left>ListSquareX</left>
                     <right>SidePad</right>
                     <bottom>224</bottom>
                     <top>PosterPad</top>
@@ -283,7 +280,7 @@
                         <texture>http://mamedev.org/_include/img/logo-mame.png</texture>
 						<visible>[String.Contains(ListItem.Property(platform),"MAME") | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + IsEmpty(ListItem.trailer) + !String.IsEqual(ListItem.Label,"MAME")</visible>
                     </control>
-				
+					
                     <control type="grouplist">
                         <left>30</left>
                         <right>30</right>
@@ -413,10 +410,9 @@
                                 <aligny>center</aligny>
                             </control>
                         </control>
-                    </control>
-					
+                        </control>
 					<control type="group">
-					  <top>430</top>
+							<top>430</top>
 							<left>30</left>
 							<right>30</right>					  
                         <control type="textbox">					
@@ -428,18 +424,30 @@
                             <align>justify</align>
                         </control>
 					</control>
-                </control>
+				</control>	
                 
 				<control type="list" id="9501">
                     <visible allowhiddenfocus="true">!IsEmpty(Window.Property(content)) + String.IsEqual(Window.Property(content),2) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
-					<include>Animation.DelayFadeIn.Slide</include>
-					<ondown>ClearProperty(content)</ondown>
+					 <onleft>9501</onleft>
+                    <onright>9501</onright>
+                    <bottom>80</bottom>
+                    <left>742</left>
+                    <width>1108</width>
+                    <height>670</height>
+                    <include>Animation.FadeIn.Slide</include>
+                    <ondown>ClearProperty(content)</ondown>
                     <ondown>9000</ondown>
                     <onback>ClearProperty(content)</onback>
                     <onback>9000</onback>
-                    <onleft>9501</onleft>
-                    <onright>9501</onright>
-                    <include>DefExtendedInfoListWide</include>
+                    <orientation>horizontal</orientation>
+                    <preloaditems>2</preloaditems>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout height="415" width="554">
+                        <include>DefExtendedInfoItemContent</include>
+                    </itemlayout>
+                    <focusedlayout height="415" width="554">
+                        <include>DefExtendedInfoFocusContent</include>
+                    </focusedlayout>
 					<content>plugin://script.extendedinfo?info=youtubesearchvideos&amp;&amp;id=$INFO[ListItem.Title]</content>
                 </control>
 				
@@ -453,8 +461,8 @@
                     <onleft>9505</onleft>
                     <onright>9505</onright>
                     <top>PosterPad</top>
-					<left>530</left>
-					<width>1320</width>
+					<left>742</left>
+					<width>1108</width>
 					<height>670</height>
 					<include>Animation.FadeIn.Slide</include>
 					<ondown>ClearProperty(content)</ondown>
@@ -462,7 +470,7 @@
 					<orientation>horizontal</orientation>
 					<preloaditems>2</preloaditems>
 					<scrolltime tween="quadratic">400</scrolltime>
-					<itemlayout height="PosterH" width="660">
+					<itemlayout height="PosterH" width="554">
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -500,7 +508,7 @@
 							<align>center</align>
 						</control>
 					</itemlayout>
-					<focusedlayout height="PosterH" width="660">
+					<focusedlayout height="PosterH" width="554">
 							<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -594,8 +602,8 @@
                     <onleft>9506</onleft>
                     <onright>9506</onright>
                     <top>PosterPad</top>
-					<left>530</left>
-					<width>1320</width>
+					<left>742</left>
+					<width>1108</width>
 					<height>670</height>
 					<include>Animation.FadeIn.Slide</include>
 					<ondown>ClearProperty(content)</ondown>
@@ -603,7 +611,7 @@
 					<orientation>horizontal</orientation>
 					<preloaditems>2</preloaditems>
 					<scrolltime tween="quadratic">400</scrolltime>
-					<itemlayout height="PosterH" width="660">
+					<itemlayout height="PosterH" width="554">
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -641,7 +649,7 @@
 							<align>center</align>
 						</control>
 					</itemlayout>
-					<focusedlayout height="PosterH" width="660">
+					<focusedlayout height="PosterH" width="554">
 							<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -727,9 +735,10 @@
 				
 					
             </control>
-        </control>
-
-        <control type="group">
+        </control>				
+          
+		  
+		  <control type="group">
             <visible>Control.HasFocus(9601)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -750,18 +759,19 @@
                 <texture background="true">$VAR[ClearLogoTopVar]</texture>
             </control>
         </control>
-
-        <control type="group">
+		
+		
+		
+		<control type="group">
             <left>SidePad</left>
             <right>SidePad</right>
             <top>PosterPad</top>
             <height>640</height>
             <visible>Control.HasFocus(9601)</visible>
             <include>Animation.FadeIn.Slide</include>
-            <include>Animation.FadeOut</include>
-
-
-            <control type="label">
+            <include>Animation.FadeOut</include>	 
+				 
+			<control type="label">
                 <description>header label</description>
                 <left>60</left>
                 <right>60</right>
@@ -772,7 +782,7 @@
                 <label>$INFO[ListItem.Label]</label>
             </control>
 
-            <control type="textbox">
+             <control type="textbox">
                 <description>textarea</description>
                 <left>60</left>
                 <right>60</right>
@@ -784,8 +794,7 @@
                 <label>$INFO[ListItem.Tagline,[B],[/B][CR][CR]]$INFO[ListItem.Plot]</label>
             </control>
         </control>
-		
-    </controls>
+</controls>
 	<onunload condition="Player.HasVideo">PlayerControl(Stop)</onunload>
 	<onunload condition="Skin.HasSetting(furniture.nowplaying)">Skin.ToggleSetting(furniture.nowplaying)</onunload>
 	<onunload condition="!Skin.HasSetting(global.showvideo)">Skin.ToggleSetting(global.showvideo)</onunload>

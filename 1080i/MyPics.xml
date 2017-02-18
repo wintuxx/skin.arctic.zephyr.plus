@@ -69,6 +69,10 @@
                     <align>left</align>
                     <label>13319</label>
                 </control>
+				<include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnUp" value="9" />
+                    <param name="PlayerControlsOnDown" value="1802" />
+                </include>
 
             </control>
 

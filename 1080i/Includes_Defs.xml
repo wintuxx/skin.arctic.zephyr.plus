@@ -4,6 +4,23 @@
         <value condition="!IsEmpty(Skin.String(focuscolor.name))">$INFO[Skin.String(focuscolor.name)]</value>
         <value>Highlight</value>
     </variable>
+	
+	<variable name="PosterSquareLabel1">
+        <value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
+        <value condition="Window.IsActive(MyPrograms.xml) | Container.Content(addons)">$INFO[ListItem.Label]</value>
+        <value>$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</value>
+    </variable>
+    <variable name="PosterSquareLabel2">
+        <value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
+        <value condition="Window.IsActive(MyPrograms.xml) | Container.Content(addons)">$INFO[ListItem.AddonSummary]</value>
+        <value>$INFO[ListItem.Artist,,  •  ]$INFO[ListItem.Genre]</value>
+    </variable>
+	
+	<variable name="BackgroundCustomizerHeader">
+        <value condition="Skin.HasSetting(Edit.LibraryBackground)">Select library background</value>
+        <value condition="Skin.HasSetting(Edit.MusicVizBackground)">Select music visualization background</value>
+    </variable>
+	
 
     <variable name="DefWidgetContent">
         <value condition="!IsEmpty(Container(300).ListItem.Property(widgetPath)) + Skin.HasSetting(NoPersistentWidgets)">$INFO[Container(300).ListItem.Property(widgetPath)]</value>
@@ -507,6 +524,7 @@
     <variable name="DefDirectorInfoWindowContent">
         <value condition="stringcompare(Window.Property(content),1)">plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]</value>
         <value condition="stringcompare(Window.Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value condition="stringcompare(Window.Property(content),4)">plugin://script.extendedinfo?info=similartvshows&amp;&amp;name=$INFO[ListItem.Title]</value>
         <value>plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Director]</value>
     </variable>
 

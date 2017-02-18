@@ -3,35 +3,52 @@
 <window id="1">
     <defaultcontrol always="true">500</defaultcontrol>
     <menucontrol>9000</menucontrol>
-    <views>500,550,50,56,57,53,503,55,555,59,54,51,58,52</views>
+    <views>500,550,50,70,80,56,566,567,57,53,503,533,55,855,955,58,581,582,59,54,541,542,51,52</views>
 
     <controls>
 
         <include>GlobalBackground</include>
-
-        <include>View_550_List</include>
-        <include>View_503_Poster_Square</include>
-        <include condition="!Skin.HasSetting(51bigwide.showinfo) + !Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide</include>
-        <include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
-        <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
-        <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
-        <include condition="!Skin.HasSetting(51bigwide.showinfo) + Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide_Classic</include>
+		<include>View_566_MediaInfo_Square</include>
+		<include>View_567_MediaInfo_Rectangle</include>
+        <include>View_550_List</include><!--Not advanced-->
+		<include>View_53_Poster</include>
+		<include>View_503_Poster_Square</include>
+		<include>View_533_Poster_Square_rectangle</include>
+		<include>View_541_Banner_Square</include>
+		<include>View_542_Banner_Rectangle</include>
+        <include condition="!Skin.HasSetting(50listprograms.low)">View_50_List</include>
+        <include condition="Skin.HasSetting(50listprograms.low)">View_50_LowList</include>
+		<include condition="!Skin.HasSetting(70listprograms.low)">View_70_List</include>
+        <include condition="Skin.HasSetting(70listprograms.low)">View_70_LowList</include>
+		<include condition="!Skin.HasSetting(80listprograms.low)">View_80_List</include>
+        <include condition="Skin.HasSetting(80listprograms.low)">View_80_LowList</include>
+        <include condition="Skin.HasSetting(51bigwideprograms.showinfo)">View_51_BigWide_Info</include>
+        <include condition="!Skin.HasSetting(51bigwideprograms.showinfo) + Skin.HasSetting(51bigwideprograms.showclassic)">View_51_BigWide_Classic</include>
+		<include condition="!Skin.HasSetting(51bigwideprograms.showinfo) + !Skin.HasSetting(51bigwideprograms.showclassic)">View_51_BigWide</include>
         <include condition="Skin.HasSetting(52biglist.singlepane)">View_52_BigList_SinglePane</include>
         <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
-        <include>View_53_Poster</include>
         <include>View_54_Banner</include>
         <include>View_555_Wall_Episodes</include>
-        <include condition="Skin.HasSetting(55wall.showinfo)">View_55_Wall_Info</include>
-        <include condition="Skin.HasSetting(55wall.showposter)">View_55_Wall_Poster</include>
-        <include condition="!Skin.HasSetting(55wall.showinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
-        <include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
-        <include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
-        <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
-        <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
-        <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
-        <include>View_58_Cards</include>
-        <include>View_59_BannerWall</include>
-        <include>View_500_Thumbnails</include>
+		<include condition="Skin.HasSetting(855wall.showinfo)">View_855_Wall</include>
+        <include condition="Skin.HasSetting(855wall.showposter)">View_866_Wall</include>
+        <include condition="!Skin.HasSetting(855wall.showinfo) + !Skin.HasSetting(855wall.showposter)">View_877_Wall</include>
+		<include condition="Skin.HasSetting(555wall.showinfo)">View_955_Wall_rectangle</include>
+        <include condition="Skin.HasSetting(555wall.showposter)">View_966_Wall_rectangle</include>
+        <include condition="!Skin.HasSetting(555wall.showinfo) + !Skin.HasSetting(555wall.showposter)">View_977_Wall_rectangle</include>
+        <include condition="Skin.HasSetting(55wallprograms.showinfo)">View_55_Wall_Info</include>
+        <include condition="Skin.HasSetting(55wallprograms.showposter)">View_55_Wall_Poster</include>
+        <include condition="!Skin.HasSetting(55wallprograms.showinfo) + !Skin.HasSetting(55wallprograms.showposter)">View_55_Wall</include>
+        <include condition="!Skin.HasSetting(56mediaprograms.showinfo) + !Skin.HasSetting(56mediaprograms.low)">View_56_MediaInfo</include>
+        <include condition="Skin.HasSetting(56mediaprograms.showinfo) + !Skin.HasSetting(56mediaprograms.low)">View_56_MediaInfo2</include>
+        <include condition="Skin.HasSetting(56mediaprograms.low)">View_56_MediaInfo3</include>
+        <include condition="!Skin.HasSetting(57listprograms.low)">View_57_ExtraInfo</include>
+        <include condition="Skin.HasSetting(57listprograms.low)">View_57_ExtraInfo_LowList</include>
+		<include>View_58_Cards</include>
+		<include>View_581_Cards_Square</include>
+		<include>View_582_Cards_Rectangle</include>
+        <include condition="Skin.HasSetting(59wall.showinfo)">View_59_BannerWall_Info</include>
+        <include condition="!Skin.HasSetting(59wall.showinfo)">View_59_BannerWall</include>
+        <include>View_500_Thumbnails</include><!--Not advanced-->
         
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
@@ -104,10 +121,30 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
-                    <selected>Skin.HasSetting(50list.low)</selected>
-                    <onclick>Skin.ToggleSetting(50list.low)</onclick>
+                    <selected>Skin.HasSetting(50listprograms.low)</selected>
+                    <onclick>Skin.ToggleSetting(50listprograms.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(50)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9019" description="Low List (70)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31142</label>
+                    <selected>Skin.HasSetting(70listprograms.low)</selected>
+                    <onclick>Skin.ToggleSetting(70listprograms.low)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(70)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9020" description="Low List (80)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31142</label>
+                    <selected>Skin.HasSetting(80listprograms.low)</selected>
+                    <onclick>Skin.ToggleSetting(80listprograms.low)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(80)</visible>
                 </control>
 
                 <control type="radiobutton" id="9009" description="Low List (50)">
@@ -116,7 +153,7 @@
                     <label>31214</label>
                     <selected>Skin.HasSetting(50list.showplot)</selected>
                     <onclick>Skin.ToggleSetting(50list.showplot)</onclick>
-                    <visible>Control.IsVisible(50) + !Skin.HasSetting(50list.low)</visible>
+                    <visible>[Control.IsVisible(50) + !Skin.HasSetting(50listprograms.low)] | [Control.IsVisible(70)+ !Skin.HasSetting(70listprograms.low)] | [Control.IsVisible(80)+ !Skin.HasSetting(80listprograms.low)]</visible>
                 </control>
 
                 <control type="radiobutton" id="9002" description="No Wrap (53)">
@@ -133,9 +170,9 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
-                    <selected>Skin.HasSetting(55wall.showinfo)</selected>
-                    <onclick>Skin.Reset(55wall.showposter)</onclick>
-                    <onclick>Skin.ToggleSetting(55wall.showinfo)</onclick>
+                    <selected>Skin.HasSetting(55wallprograms.showinfo)</selected>
+                    <onclick>Skin.Reset(55wallprograms.showposter)</onclick>
+                    <onclick>Skin.ToggleSetting(55wallprograms.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(55)</visible>
                 </control>
@@ -144,20 +181,74 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31185</label>
-                    <selected>Skin.HasSetting(55wall.showposter)</selected>
-                    <onclick>Skin.Reset(55wall.showinfo)</onclick>
-                    <onclick>Skin.ToggleSetting(55wall.showposter)</onclick>
+                    <selected>Skin.HasSetting(55wallprograms.showposter)</selected>
+                    <onclick>Skin.Reset(55wallprograms.showinfo)</onclick>
+                    <onclick>Skin.ToggleSetting(55wallprograms.showposter)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(55)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9025" description="Info Wall (59)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(59wall.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(59wall.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(59)</visible>
+                </control>
+				
+				 <control type="radiobutton" id="9023" description="Rectangle Wall (955)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(555wall.showinfo)</selected>
+                    <onclick>Skin.Reset(555wall.showposter)</onclick>
+                    <onclick>Skin.ToggleSetting(555wall.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(955)</visible>
+                </control>
+
+                <control type="radiobutton" id="9024" description="Rectangle Wall (955)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31185</label>
+                    <selected>Skin.HasSetting(555wall.showposter)</selected>
+                    <onclick>Skin.Reset(555wall.showinfo)</onclick>
+                    <onclick>Skin.ToggleSetting(555wall.showposter)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(955)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9027" description="Square Wall (855)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(855wall.showinfo)</selected>
+                    <onclick>Skin.Reset(855wall.showposter)</onclick>
+                    <onclick>Skin.ToggleSetting(855wall.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(855)</visible>
+                </control>
+
+                <control type="radiobutton" id="9026" description="Square Wall (855)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31185</label>
+                    <selected>Skin.HasSetting(855wall.showposter)</selected>
+                    <onclick>Skin.Reset(855wall.showinfo)</onclick>
+                    <onclick>Skin.ToggleSetting(855wall.showposter)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(855)</visible>
                 </control>
 
                 <control type="radiobutton" id="9005" description="Info Media (56)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
-                    <selected>Skin.HasSetting(56media.showinfo)</selected>
-                    <onclick>Skin.ToggleSetting(56media.showinfo)</onclick>
-                    <onclick>Skin.Reset(56media.low)</onclick>
+                    <selected>Skin.HasSetting(56mediaprograms.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(56mediaprograms.showinfo)</onclick>
+                    <onclick>Skin.Reset(56mediaprograms.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(56)</visible>
                 </control>
@@ -166,9 +257,9 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
-                    <selected>Skin.HasSetting(56media.low)</selected>
-                    <onclick>Skin.ToggleSetting(56media.low)</onclick>
-                    <onclick>Skin.Reset(56media.showinfo)</onclick>
+                    <selected>Skin.HasSetting(56mediaprograms.low)</selected>
+                    <onclick>Skin.ToggleSetting(56mediaprograms.low)</onclick>
+                    <onclick>Skin.Reset(56mediaprograms.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(56)</visible>
                 </control>
@@ -177,8 +268,8 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
-                    <selected>Skin.HasSetting(57list.low)</selected>
-                    <onclick>Skin.ToggleSetting(57list.low)</onclick>
+                    <selected>Skin.HasSetting(57listprograms.low)</selected>
+                    <onclick>Skin.ToggleSetting(57listprograms.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(57)</visible>
                 </control>
@@ -187,9 +278,9 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
-                    <selected>Skin.HasSetting(51bigwide.showinfo)</selected>
-                    <onclick>Skin.ToggleSetting(51bigwide.showinfo)</onclick>
-                    <onclick>Skin.Reset(51bigwide.showclassic)</onclick>
+                    <selected>Skin.HasSetting(51bigwideprograms.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(51bigwideprograms.showinfo)</onclick>
+                    <onclick>Skin.Reset(51bigwideprograms.showclassic)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
                 </control>
@@ -198,9 +289,9 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31245</label>
-                    <selected>Skin.HasSetting(51bigwide.showclassic)</selected>
-                    <onclick>Skin.ToggleSetting(51bigwide.showclassic)</onclick>
-                    <onclick>Skin.Reset(51bigwide.showinfo)</onclick>
+                    <selected>Skin.HasSetting(51bigwideprograms.showclassic)</selected>
+                    <onclick>Skin.ToggleSetting(51bigwideprograms.showclassic)</onclick>
+                    <onclick>Skin.Reset(51bigwideprograms.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
                  </control>
@@ -259,6 +350,10 @@
                     <onclick>Filter</onclick>
                     <selected>Container.Filtered</selected>
                 </control>
+				<include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnUp" value="4" />
+                    <param name="PlayerControlsOnDown" value="1802" />
+                </include>
 
             </control>
         </control>

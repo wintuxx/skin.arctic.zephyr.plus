@@ -9,7 +9,7 @@
             <control type="group">
 
                 <control type="group">
-                    <animation effect="slide" end="334" start="0" time="75" tween="quadratic" condition="Window.IsActive(musicosd)">Conditional</animation>
+                    <animation effect="slide" end="0,-174" start="0" time="75" tween="quadratic" condition="Window.IsActive(musicosd)">Conditional</animation>
                     <top>200</top>
                     <bottom>180</bottom>
                     <width>100%</width>
