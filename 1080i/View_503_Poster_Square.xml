@@ -7,8 +7,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(503)</visible>
             <control type="fixedlist" id="503">
-                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)">ActivateWindow(1128)</oninfo>
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)">ActivateWindow(1129)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)| Window.IsActive(programs) | Container.Content(addons) | Container.Content(artists)</visible>
                 <posy>259</posy> <!--default is 309-->
                 <posx>-190</posx>
                 <width>2300</width>
@@ -113,6 +113,14 @@
                         <posy>120</posy>
                         <animation condition="Container(503).OnNext | Container(503).OnPrevious" effect="zoom" start="60" end="100" delay="0" time="350" tween="sine" easing="out" center="213,276">Focus</animation>
                         <animation condition="Container(503).OnNext | Container(503).OnPrevious" effect="zoom" start="100" end="60" delay="0" time="250" tween="sine" easing="out" center="213,276">UnFocus</animation>
+						<control type="image">
+							<top>PosterW</top>
+							<width>PosterW</width>
+							<height>PosterW</height>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+							<visible>Skin.HasSetting(show.reflections)</visible>
+						</control>
                         <control type="image">
                             <centertop>PosterW</centertop>
                             <width>PosterW</width>
@@ -211,16 +219,16 @@
                 <control type="label">
                     <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                     <font>SmallBold</font>
-                    <label>$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
+                    <label>$VAR[PosterSquareLabel1]</label>
                     <textcolor>Dark1</textcolor>
                     <height>35</height>
                     <aligny>top</aligny>
                 </control>
 
                 <control type="label">
-                    <visible>Container.Content(musicvideos) | Container.Content(albums)</visible>
+				<visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
                     <font>Tiny</font>
-                    <label>$INFO[ListItem.Artist]$INFO[ListItem.Genre,  •  ]</label>
+                    <label>$VAR[PosterSquareLabel2]</label>
                     <textcolor>Dark1</textcolor>
                     <height>42</height>
                     <aligny>top</aligny>
@@ -246,7 +254,7 @@
                 </control>
 
 		<control type="textbox">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(albums)</visible>
                     <font>Tiny</font>
                     <label>$VAR[LabelPlotBox]</label>
                     <textcolor>Dark2</textcolor>
@@ -258,6 +266,5 @@
             </control>
         </control>
     </include>
-
 </includes>
 

@@ -4,7 +4,7 @@
     <include name="View_52_BigList"><include>View_52_BigList_SinglePane</include></include>
     <include name="View_52_BigList_SinglePane">
         <description>List View (id=52)</description>
-        <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+        <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(52)</visible>
@@ -42,7 +42,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(52)</visible>
             <control type="panel" id="52">
-               <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo> 
+               <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo> 
                 <top>PosterPad</top>
                 <left>SidePad</left>
                 <width>1770</width>

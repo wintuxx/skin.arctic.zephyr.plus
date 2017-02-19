@@ -1,6 +1,5 @@
 <window>
     <defaultcontrol>30</defaultcontrol>
-
     <defaultcontrol always="true">9101</defaultcontrol>
 
     <controls>
@@ -376,6 +375,52 @@
                         <selected>Skin.HasSetting(furniture.logo)</selected>
                         <onclick>Skin.ToggleSetting(furniture.logo)</onclick>
                     </control>
+					<control type="radiobutton" id="9282" description="Studios Record Labels">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Show studio and record labels logos</label>
+                        <selected>Skin.HasSetting(furniture.studiorecord)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.studiorecord)</onclick>
+                    </control>
+					
+					<control type="radiobutton" id="9289" description="Show CharacterArt ">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Show character art</label>
+                        <selected>Skin.HasSetting(furniture.cart)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.cart)</onclick>
+                    </control>
+					
+					<control type="radiobutton" id="9283" description="Show DiscArt">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Show disc art</label>
+                        <selected>Skin.HasSetting(furniture.discart)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.discart)</onclick>
+                    </control>
+					
+					<control type="radiobutton" id="9284" description="Animate DiscArt">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Animate discart</label>
+                        <selected>Skin.HasSetting(furniture.discartAnim)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.discartAnim)</onclick>
+						<enable>Skin.HasSetting(furniture.discart)</enable>
+                    </control>Skin.HasSetting(furniture.logo)
+					
+					<control type="radiobutton" id="9285" description="Disable path">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Don't show path on info page</label>
+                        <selected>!Skin.HasSetting(furniture.showpath)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.showpath)</onclick>
+                    </control>
+					
                     <control type="radiobutton" id="9267" description="Reflections">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9106)</visible>
@@ -393,17 +438,34 @@
                         <onclick>Skin.ToggleSetting(furniture.overlayinfo)</onclick>
                     </control>
 					
+					 <control type="radiobutton" id="9280" description="Fanart or landscape">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Use fanarts instead of landscapes on tvshows</label>
+                        <selected>Skin.HasSetting(furniture.fanartvshows)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.fanartvshows)</onclick>
+                    </control>
+					
+					<control type="radiobutton" id="9281" description="Fanart or landscape">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Use fanarts instead of landscapes on movies</label>
+                        <selected>Skin.HasSetting(furniture.fanartmovies)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.fanartmovies)</onclick>
+                    </control>
+
+					
 					<control type="button" id="9279" description="Set Games extra Art Dir">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 						<include>DefSettingsButton</include>
-						<label>Games Extra Art Path</label>
+						<label>$LOCALIZE[15016] - $LOCALIZE[15019] $LOCALIZE[573]</label>
 						<label2>$INFO[Skin.String(gamesartworklocation)]</label2>
 						<onclick>Skin.SetPath(gamesartworklocation)</onclick>
 		            </control>	
-
-
-
+	
                     <!-- Extras -->
                     <control type="button" id="9271" description="Startup Video">
                         <width>1310</width>

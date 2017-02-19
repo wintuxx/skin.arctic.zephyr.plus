@@ -7,7 +7,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(505)</visible>
             <control type="panel" id="505">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)</visible>
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1120</width>
@@ -47,6 +48,31 @@
                         <autoscroll>false</autoscroll>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
+					
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+								
                 </itemlayout>
                 <focusedlayout height="337" width="222">
                     <control type="image">
@@ -91,6 +117,29 @@
                         <label>$INFO[ListItem.Label]</label>
                     </control>
 
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
                 </focusedlayout>
 
             </control>
@@ -160,7 +209,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(506)</visible>
             <control type="panel" id="506">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1120</width>
@@ -189,6 +239,29 @@
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
                     </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
                 </itemlayout>
                 <focusedlayout height="220" width="224">
                     <control type="image">
@@ -221,7 +294,29 @@
                             <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
                         </animation>
                     </control>
-
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
                 </focusedlayout>
             </control>
             <include>Furniture_Scrollbar</include>
@@ -265,7 +360,8 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(507)</visible>
             <control type="panel" id="507">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums)</visible>
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums)</visible>
                 <top>206</top>
                 <right>70</right>
                 <left>70</left>
@@ -305,6 +401,29 @@
                         <autoscroll>false</autoscroll>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
                 </itemlayout>
                 <focusedlayout height="337" width="222">
                     <control type="image">
@@ -348,6 +467,29 @@
                         <autoscroll>false</autoscroll>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
 
                 </focusedlayout>
 

@@ -11,7 +11,7 @@
 
             <control type="group">
                 <control type="panel" id="500">
-                   <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
+                   <visible> !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                     <top>206</top>
                     <left>70</left>
                     <width>1780</width>
