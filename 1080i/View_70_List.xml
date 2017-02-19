@@ -1,0 +1,2527 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+ <include name="View_70_List">
+        <description>List View (id=70)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(70)</visible>
+            <control type="group">
+                <control type="list" id="70">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <left>ListSquareX</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>70</onup>
+                    <ondown>70</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="ListSquareW" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListSquareW" height="128" condition="Skin.HasSetting(60list.showplot)">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>50focuslayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Light1</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>50itemlayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Dark2</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <focusedlayout width="ListSquareW" height="64" condition="!Skin.HasSetting(50list.showplot)">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <include>View_50_SidePoster_Square</include>
+        </control>
+    </include>
+	
+	<include name="View_70_LowList">
+        <description>List View (id=70)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(70)</visible>
+            <control type="group">
+                <posy>320</posy>
+                <control type="fixedlist" id="70">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <top>PosterPad</top>
+                    <height>320</height>
+                    <left>ListSquareX</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>70</onup>
+                    <ondown>70</ondown>
+                    <focusposition>2</focusposition>
+                    <movement>2</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="ListSquareW" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListSquareW" height="64">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="scrollbar" id="60">
+                    <onback>50</onback>
+                    <centerright>60</centerright>
+                    <posy>PosterPad</posy>
+                    <height>320</height>
+                    <width>8</width>
+                    <onleft>50</onleft>
+                    <onright condition="!Skin.HasSetting(global.kioskmode)">9000</onright>
+                    <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+                    <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+                    <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+                    <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+                </control>
+            </control>
+            <include>View_50_SidePoster_Square</include>
+        </control>
+    </include>
+	
+	
+	<include name="View_80_List">
+        <description>List View (id=80)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(80)</visible>
+            <control type="group">
+                <control type="list" id="80">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <left>966</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>80</onup>
+                    <ondown>80</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="864" height="64">
+                        <include>80itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="864" height="128" condition="Skin.HasSetting(50list.showplot)">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>80focuslayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Light1</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>80itemlayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Dark2</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <focusedlayout width="864" height="64" condition="!Skin.HasSetting(80list.showplot)">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>80focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>80itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <include>View_80_SidePoster_Rectangle</include>
+        </control>
+    </include>
+	
+	<include name="View_80_LowList">
+        <description>List View (id=80)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(80)</visible>
+            <control type="group">
+                <posy>320</posy>
+                <control type="fixedlist" id="80">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) </visible>
+                    <top>PosterPad</top>
+                    <height>320</height>
+                    <left>966</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>80</onup>
+                    <ondown>80</ondown>
+                    <focusposition>2</focusposition>
+                    <movement>2</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="864" height="64">
+                        <include>80itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="864" height="64">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>80itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="scrollbar" id="60">
+                    <onback>50</onback>
+                    <centerright>60</centerright>
+                    <posy>PosterPad</posy>
+                    <height>320</height>
+                    <width>8</width>
+                    <onleft>50</onleft>
+                    <onright condition="!Skin.HasSetting(global.kioskmode)">9000</onright>
+                    <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+                    <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+                    <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+                    <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+                </control>
+            </control>
+            <include>View_80_SidePoster_Rectangle</include>
+        </control>
+    </include>
+	
+	<include name="View_80_SidePoster_Rectangle">
+        <control type="group" description="Poster">
+            <left>SidePad</left>
+            <top>PosterPad</top>
+            <visible>!IsEmpty(ListItem.Icon)</visible>
+            <control type="image">
+                <top>PosterH</top>
+                <width>864</width>
+                <height>PosterH</height>
+                <fadetime>100</fadetime>
+                <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+                <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                <visible>Skin.HasSetting(show.reflections)</visible>
+            </control>
+            <control type="image">
+                <centertop>PosterH</centertop>
+                <width>864</width>
+                <height>48</height>
+                <aspectratio>stretch</aspectratio>
+                <texture>diffuse/shadowspot.png</texture>
+            </control>
+            <control type="image">
+                <width>864</width>
+                <height>PosterH</height>
+                <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+            </control>
+            <control type="image">
+                <width>864</width>
+                <height>PosterH</height>
+                <fadetime>100</fadetime>
+                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+            </control>
+            <control type="image">
+                <left>-24</left>
+                <top>-24</top>
+                <width>912</width>
+                <height>PosterShadowH</height>
+                <texture border="32">common/shadow-24.png</texture>
+            </control>
+        </control>
+    </include>
+	
+	<include name="80itemlayout">
+      
+	       	<control type="label">
+            <posx>30</posx>
+            <width>200</width>
+            <font>Small</font>
+            <aligny>center</aligny>
+            <height>64</height>
+            <label>$INFO[ListItem.Year]</label>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+        </control>
+
+        <control type="label">
+            <posx>120</posx>
+            <width>610</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <animation effect="slide" start="0" end="-90" time="0" condition="!Container.Content(movies) +!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">Conditional</animation>
+            <visible>!Container.Content(episodes) + !Container.Content(tvshows)</visible>
+        </control>
+		<control type="image">
+            <centerright>110</centerright>
+            <centertop>32</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <label fallback="0.0">$INFO[ListItem.Rating]</label>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!Container.Content(seasons)</visible>
+        </control>
+    </include>
+	
+	<include name="80focuslayout">
+
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+        </control>
+
+         <control type="label">
+            <posx>30</posx>
+            <width>200</width>
+            <font>Small</font>
+            <aligny>center</aligny>
+            <height>64</height>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Year]</label>
+            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+        </control>
+ 
+     <control type="label">
+            <posx>120</posx>
+            <width>595</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Label]</label>
+            <animation effect="slide" start="0" end="-90" time="0" condition="!Container.Content(movies) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">Conditional</animation>
+            <visible>!Container.Content(episodes) + !Container.Content(tvshows)</visible>
+        </control>
+		
+		<control type="image">
+            <centerright>110</centerright>
+            <centertop>32</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label fallback="0.0">$INFO[ListItem.Rating]</label>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!Container.Content(seasons)</visible>
+        </control>
+    </include>
+	
+	<!-----------------------------WALL RECTANGLE------------------------------->
+	
+	<include name="View_955_Wall_rectangle">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(955)</visible>
+            <control type="panel" id="955">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)</visible>
+                <top>206</top>
+                <right>70</right>
+                <width>1120</width>
+                <height>674</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>955</onup>
+                <ondown>955</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="337" width="280">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>212</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>192</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="textbox">
+                        <top>217</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+								
+                </itemlayout>
+                <focusedlayout height="337" width="280">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>212</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>192</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>3</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <height>200</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+                    <control type="textbox">
+                        <top>217</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </focusedlayout>
+
+            </control>
+            <include>Furniture_Scrollbar</include>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <width>PosterH</width>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>360</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>360</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[FanartImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>408</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+                <control type="group">
+                    <left>20</left>
+                    <right>20</right>
+                    <top>360</top>
+                    <height>300</height>
+
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelDirector]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelGenre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <bottom>17</bottom>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelPlotBox]</label>
+                    </control>
+                </control>
+            </control>
+
+        </control>
+		</include>
+		
+	<include name="View_966_Wall_rectangle">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(955)</visible>
+            <control type="panel" id="955">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
+                <top>206</top>
+                <right>70</right>
+                <width>882</width>
+                <height>660</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>955</onup>
+                <ondown>955</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="220" width="294">
+                    <control type="image">
+                        <left>4</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <bottom>0</bottom>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>14</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </itemlayout>
+                <focusedlayout height="220" width="294">
+                    <control type="image">
+                        <left>4</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <bottom>0</bottom>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>14</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>7</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <bottom>3</bottom>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </focusedlayout>
+            </control>
+            <include>Furniture_Scrollbar</include>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>878</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+
+                </control>
+                <control type="image">
+                    <width>878</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>878</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>926</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+
+        </control>
+		</include>
+
+	<include name="View_977_Wall_rectangle">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(955)</visible>
+            <control type="panel" id="955">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums)</visible>
+                <top>206</top>
+                <right>70</right>
+                <left>70</left>
+                <height>674</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>955</onup>
+                <ondown>955</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="337" width="296">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </itemlayout>
+                <focusedlayout height="337" width="296">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>3</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <height>210</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+
+                </focusedlayout>
+
+            </control>
+            <include>Furniture_Scrollbar</include>
+
+        </control>
+
+    </include>
+	
+	
+	
+	<!-----------------------------WALL SQUARE------------------------------->
+	<include name="View_855_Wall">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(855)</visible>
+            <control type="panel" id="855">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)</visible>
+                <top>206</top>
+                <right>70</right>
+                <width>1120</width>
+                <height>674</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>855</onup>
+                <ondown>855</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="337" width="222">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+								
+                </itemlayout>
+                <focusedlayout height="337" width="222">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>3</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <height>210</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </focusedlayout>
+
+            </control>
+            <include>Furniture_Scrollbar</include>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <width>PosterH</width>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>360</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>360</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[FanartImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>408</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+                <control type="group">
+                    <left>20</left>
+                    <right>20</right>
+                    <top>360</top>
+                    <height>300</height>
+
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelDirector]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelGenre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <bottom>17</bottom>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelPlotBox]</label>
+                    </control>
+                </control>
+            </control>
+
+        </control>
+		</include>
+		
+		<include name="View_866_Wall">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(855)</visible>
+            <control type="panel" id="855">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
+                <top>206</top>
+                <right>70</right>
+                <width>1120</width>
+                <height>660</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>855</onup>
+                <ondown>855</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="220" width="224">
+                    <control type="image">
+                        <left>4</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <bottom>0</bottom>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>14</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </itemlayout>
+                <focusedlayout height="220" width="224">
+                    <control type="image">
+                        <left>4</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <bottom>0</bottom>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>14</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>7</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <bottom>3</bottom>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </focusedlayout>
+            </control>
+            <include>Furniture_Scrollbar</include>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterH</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+
+        </control>
+		</include>
+
+		<include name="View_877_Wall">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(855)</visible>
+            <control type="panel" id="855">
+				<oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums)</visible>
+                <top>206</top>
+                <right>70</right>
+                <left>70</left>
+                <height>674</height>
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright>60</onright>
+                <onup>855</onup>
+                <ondown>855</ondown>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="536">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout height="337" width="222">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+                </itemlayout>
+                <focusedlayout height="337" width="222">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <right>0</right>
+                        <height>222</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <height>202</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                    </control>
+                    <control type="image">
+                        <left>3</left>
+                        <top>3</top>
+                        <right>3</right>
+                        <height>210</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                        <animation type="Focus">
+                            <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Unfocus">
+                            <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                            <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                        </animation>
+                    </control>
+                    <control type="textbox">
+                        <top>222</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>96</height>
+                        <textcolor>Dark1</textcolor>
+                        <font>Tiny</font>
+                        <align>center</align>
+                        <autoscroll>false</autoscroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+					<!--CHANGED-->
+					<control type="group">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PosterPercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control> 
+					 </control>
+					<!--END-->
+
+                </focusedlayout>
+
+            </control>
+            <include>Furniture_Scrollbar</include>
+
+        </control>
+
+    </include>
+	
+	
+	
+	
+	
+	<include name="View_533_Poster_Square_rectangle">
+        <description>List View (id=533)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(533)</visible>
+            <control type="fixedlist" id="533">
+                <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)">ActivateWindow(1130)</oninfo>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)| Window.IsActive(programs) | Container.Content(addons) | Container.Content(artists)</visible>
+                <posy>259</posy> <!--default is 309-->
+                <posx>-270</posx>
+                <width>2300</width>
+                <onup condition="!Skin.HasSetting(global.kioskmode)">9000</onup>
+                <ondown>60</ondown>
+                <onleft>533</onleft>
+                <onright>533</onright>
+                <focusposition>1</focusposition>
+                <preloaditems>0</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <orientation>horizontal</orientation>
+                <viewtype label="538">list</viewtype>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <itemlayout width="365">
+                    <control type="group">
+
+                        <animation effect="Conditional" condition="true">
+                            <effect type="zoom" end="60" time="0" center="213,452" />
+                        </animation>
+                        <control type="image">
+                            <centertop>PosterW</centertop>
+                            <width>585</width>
+                            <height>48</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture>diffuse/shadowspot.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>585</width>
+                            <height>PosterW</height>
+                            <texture border="5" colordiffuse="Dark1">common/box.png</texture>
+                        </control>
+
+                        <control type="image">
+                            <width>585</width>
+                            <height>PosterW</height>
+                            <fadetime>100</fadetime>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/listposter.png" background="true">$VAR[ThumbImage]</texture>
+                        </control>
+
+                        
+                        <control type="group">
+                            <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !stringcompare(ListItem.Label,..)</visible>
+                            <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+				
+                            <control type="image">
+                                <left>535</left>
+                                <centertop>32</centertop>
+                                <width>32</width>
+                                <height>32</height>
+                                <aspectratio aligny="top">keep</aspectratio>
+                                <texture>$VAR[PercentWatched]</texture>
+                            </control>
+                        </control>
+		
+	        <!--CHANGED-->
+		<control type="group">
+		<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+		   <control type="image">
+                        <left>535</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control>
+                    <control type="image">
+                        <left>535</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture>$VAR[PosterPercentWatched]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control> 
+		 </control>
+		<!--END-->
+			    
+                        <control type="image">
+                            <left>-24</left>
+                            <top>-24</top>
+                            <width>632</width>
+                            <height>PosterShadowW</height>
+                            <texture border="32">common/shadow-24.png</texture>
+                        </control>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="415">
+                    <control type="group">
+                        <posy>120</posy>
+                        <animation condition="Container(533).OnNext | Container(533).OnPrevious" effect="zoom" start="60" end="100" delay="0" time="350" tween="sine" easing="out" center="213,276">Focus</animation>
+                        <animation condition="Container(533).OnNext | Container(533).OnPrevious" effect="zoom" start="100" end="60" delay="0" time="250" tween="sine" easing="out" center="213,276">UnFocus</animation>
+						<control type="image">
+							<top>PosterW</top>
+							<width>585</width>
+							<height>PosterW</height>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+							<visible>Skin.HasSetting(show.reflections)</visible>
+						</control>
+                        <control type="image">
+                            <centertop>PosterW</centertop>
+                            <width>585</width>
+                            <height>48</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture>diffuse/shadowspot.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>585</width>
+                            <height>PosterW</height>
+                            <texture border="5" colordiffuse="Dark1">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>PosterW</width>
+                            <height>PosterW</height>
+                            <fadetime>100</fadetime>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                            <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                        </control>
+                        
+                        <!--CHANGES-->
+                        <control type="image">
+                            <width>585</width>
+                            <height>PosterW</height>
+                            <fadetime>100</fadetime>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/listposter.png" background="true">$VAR[ThumbImage]</texture>
+                            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                        </control>
+                        <!--END-->
+                        
+                        <control type="group">
+                            <visible>!stringcompare(ListItem.Label,..) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                            <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+
+                            <control type="image">
+                                <left>535</left>
+                                <centertop>32</centertop>
+                                <width>32</width>
+                                <height>32</height>
+                                <aspectratio aligny="top">keep</aspectratio>
+                                <texture>$VAR[PercentWatched]</texture>
+                            </control>
+                        </control>
+		
+		<!--CHANGED-->
+		<control type="group">
+		<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>	 
+		   <control type="image">
+                        <left>535</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control>
+                    <control type="image">
+                       <left>535</left>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture>$VAR[PosterPercentWatched]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                    </control> 
+		 </control>   
+		<!--END-->	    
+			    
+                        <control type="image">
+                            <left>-24</left>
+                            <top>-24</top>
+                            <width>632</width>
+                            <height>PosterShadowW</height>
+                            <texture border="32">common/shadow-24.png</texture>
+                        </control>
+
+                    </control>
+                </focusedlayout>
+
+            </control>
+
+            <control type="group">
+                <animation effect="fade" condition="!Control.HasFocus(60)" time="200" start="100" end="0">Conditional</animation>
+                <include>Furniture_Scrollbar_Horizontal</include>
+            </control>
+
+            <control type="grouplist">
+                <left>710</left>
+                <right>SidePad</right>
+                <top>720</top><!--default is 770-->
+                <orientation>vertical</orientation>
+                <visible>![Container(533).OnNext | Container(533).OnPrevious]</visible>
+                <animation effect="fade" start="0" end="100" delay="450" time="250" reversible="false">Visible</animation>
+                <control type="label">
+                    <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <font>SmallBold</font>
+                    <label>$VAR[PosterSquareLabel1]</label>
+                    <textcolor>Dark1</textcolor>
+                    <height>35</height>
+                    <aligny>top</aligny>
+                </control>
+
+                <control type="label">
+				<visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <font>Tiny</font>
+                    <label>$VAR[PosterSquareLabel2]</label>
+                    <textcolor>Dark1</textcolor>
+                    <height>42</height>
+                    <aligny>top</aligny>
+                </control>
+                
+                <!--CHANGES-->
+				<control type="label">
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <font>SmallBold</font>
+                    <label>$INFO[ListItem.Label]$INFO[ListItem.Year, (,)]</label>
+                    <textcolor>Dark1</textcolor>
+                    <height>35</height>
+                    <aligny>top</aligny>
+                </control>
+ 
+                <control type="label">
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)</visible>
+                    <font>Tiny</font>
+                    <label>$VAR[LabelGenre]$INFO[ListItem.Studio,  •  ]</label>
+                    <textcolor>Dark1</textcolor>
+                    <height>42</height>
+                    <aligny>top</aligny>
+                </control>
+
+		<control type="textbox">
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(albums)</visible>
+                    <font>Tiny</font>
+                    <label>$VAR[LabelPlotBox]</label>
+                    <textcolor>Dark2</textcolor>
+                    <height>68</height>
+                    <align>justify</align>
+                </control>
+	   <!--END-->
+  
+            </control>
+        </control>
+    </include>
+	
+	
+	
+	<include name="View_581_Cards_Square">
+        <description>List View (id=581)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(581)</visible>
+            <control type="group">
+                <control type="panel" id="581">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    <top>206</top>
+                    <height>660</height>
+                    <left>70</left>
+                    <right>70</right>
+                    <onup>581</onup>
+                    <ondown>581</ondown>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <orientation>vertical</orientation>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <viewtype label="31198">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="890" height="330">
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <right>24</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <width>310</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="label">
+                            <left>335</left>
+                            <right>64</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>335</left>
+                            <right>30</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <autoscroll>false</autoscroll>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                        <control type="label">
+                            <left>335</left>
+                            <right>30</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+
+                    </itemlayout>
+
+                    <focusedlayout width="890" height="330">
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <width>310</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="image">
+                            <right>24</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="label">
+                            <left>335</left>
+                            <right>74</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>335</left>
+                            <right>30</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                        <control type="label">
+                            <left>335</left>
+                            <right>30</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+                    </focusedlayout>
+                    
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+
+        </control>
+    </include>
+	
+	<include name="View_582_Cards_Rectangle">
+        <description>List View (id=582)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(582)</visible>
+            <control type="group">
+                <control type="panel" id="582">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    <top>206</top>
+                    <height>660</height>
+                    <left>70</left>
+                    <right>70</right>
+                    <onup>582</onup>
+                    <ondown>582</ondown>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <orientation>vertical</orientation>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <viewtype label="31198">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="890" height="330">
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark4" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <right>24</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <width>425</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="label">
+                            <left>451</left>
+                            <right>64</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>451</left>
+                            <right>30</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <autoscroll>false</autoscroll>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                        <control type="label">
+                            <left>451</left>
+                            <right>30</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+
+                    </itemlayout>
+
+                    <focusedlayout width="890" height="330">
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <width>425</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="image">
+                            <right>24</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="label">
+                            <left>451</left>
+                            <right>74</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>451</left>
+                            <right>30</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                        <control type="label">
+                            <left>451</left>
+                            <right>30</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+                    </focusedlayout>
+                    
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+
+        </control>
+    </include>
+
+	
+	
+	
+	
+	<include name="View_566_MediaInfo_Square">
+        <description>List View (id=566)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(566)</visible>
+            <control type="group">
+                <control type="fixedlist" id="566">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>448</height>
+                    <left>ListSquareX</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>566</onup>
+                    <ondown>566</ondown>
+                    <focusposition>3</focusposition>
+                    <movement>3</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="544">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="ListSquareW" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListSquareW" height="64">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterH</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+            <control type="group" description="Plot et al">
+                <left>ListSquareX</left>
+                <right>SidePad</right>
+                <control type="grouplist">
+                    <left>30</left>
+                    <right>30</right>
+                    <top>690</top>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="0" end="100" delay="450" time="250" reversible="false">Visible</animation>
+                    <control type="label">
+                        <font>SmallBold</font>
+                        <label>$VAR[LabelDirector]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>35</height>
+                        <aligny>top</aligny>
+                        <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    </control>
+                    
+                    <!--CHANGES-->
+                    <control type="label">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                        <font>SmallBold</font>
+                        <label>$INFO[ListItem.Studio]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>35</height>
+                        <aligny>top</aligny>
+                    </control>
+                    <!--CHANGES-->
+                    
+                    <control type="label">
+                        <font>Tiny</font>
+                        <label>$VAR[LabelGenre]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>42</height>
+                        <aligny>top</aligny>
+                    </control>
+                    <control type="textbox">
+                        <font>Tiny</font>
+                        <label>$VAR[LabelPlotBox]</label>
+                        <textcolor>Dark2</textcolor>
+                        <height>68</height>
+                        <align>justify</align>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+	
+	<include name="View_567_MediaInfo_Rectangle">
+        <description>List View (id=567)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(567)</visible>
+            <control type="group">
+                <control type="fixedlist" id="567">
+                    <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>448</height>
+                    <left>966</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>567</onup>
+                    <ondown>567</ondown>
+                    <focusposition>3</focusposition>
+                    <movement>3</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="544">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="864" height="64">
+                        <include>80itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="864" height="64">
+                        <control type="group">
+                            <visible>!Control.HasFocus(60)</visible>
+                            <include>80focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(60)</visible>
+                            <include>80itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>864</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>864</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+
+                </control>
+                <control type="image">
+                    <width>864</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>864</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>912</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+            <control type="group" description="Plot et al">
+                <left>966</left>
+                <right>SidePad</right>
+                <control type="grouplist">
+                    <left>30</left>
+                    <right>30</right>
+                    <top>690</top>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="0" end="100" delay="450" time="250" reversible="false">Visible</animation>
+                    <control type="label">
+                        <font>SmallBold</font>
+                        <label>$VAR[LabelDirector]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>35</height>
+                        <aligny>top</aligny>
+                        <visible>!substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                    </control>
+                    
+                    <!--CHANGES-->
+                    <control type="label">
+						<visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                        <font>SmallBold</font>
+                        <label>$INFO[ListItem.Studio]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>35</height>
+                        <aligny>top</aligny>
+                    </control>
+                    <!--CHANGES-->
+                    
+                    <control type="label">
+                        <font>Tiny</font>
+                        <label>$VAR[LabelGenre]</label>
+                        <textcolor>Dark1</textcolor>
+                        <height>42</height>
+                        <aligny>top</aligny>
+                    </control>
+                    <control type="textbox">
+                        <font>Tiny</font>
+                        <label>$VAR[LabelPlotBox]</label>
+                        <textcolor>Dark2</textcolor>
+                        <height>68</height>
+                        <align>justify</align>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+	
+	<include name="View_541_Banner_Square">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(541)</visible>
+            <control type="group">
+                <control type="fixedlist" id="541">
+                   <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
+                    <animation effect="slide" start="0" end="136" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">Conditional</animation>
+                    <animation effect="slide" start="0" end="210" condition="Container.Content(albums) | Container.Content(songs)">Conditional</animation>
+                    <top>PosterPad</top>
+                    <height>640</height>
+                    <centerleft>50%</centerleft>
+                    <width>1560</width>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>541</onup>
+                    <ondown>541</ondown>
+                    <focusposition>1</focusposition>
+                    <movement>2</movement>
+                    <preloaditems>2</preloaditems>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="539">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="1288" height="106" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">
+                        <control type="label">
+                            <left>0</left>
+                            <centertop>34</centertop>
+                            <width>100%</width>
+                            <height>52</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>SmallBold</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                        </control>
+                       
+                       <!--CHANGES-->
+                        <control type="label">
+                            <centerbottom>34</centerbottom>
+                            <left>0</left>
+                            <width>100%</width>
+                            <height>52</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Year,,  •  ]$INFO[ListItem.Studio,,  •  ]$INFO[ListItem.Rating]</label>
+                            <font>Flag</font>
+                            <textcolor>Dark3</textcolor>
+                            <selectedcolor>Dark3</selectedcolor>
+                            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                         </control>
+                       <!--END-->
+                    </itemlayout>
+
+                    
+                    <focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">
+                        <control type="image">
+                            <left>110</left>
+                            <top>10</top>
+                            <right>110</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>110</left>
+                            <top>10</top>
+                            <width>310</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="image">
+                            <right>124</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="label">
+                            <left>440</left>
+                            <right>174</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>440</left>
+                            <right>130</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                       
+                        <control type="label">
+                            <left>337</left>
+                            <right>130</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <visible>!Container.Content(seasons)</visible>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+                             
+                        <control type="label">
+                            <left>440</left>
+                            <right>130</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <visible>Container.Content(seasons)</visible>
+                            <label fallback="19055">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[31215]]</label>
+                        </control>
+                    </focusedlayout>
+                </control>
+
+                <include>Furniture_Scrollbar</include>
+            </control>
+        </control>
+    </include>
+	
+	<include name="View_542_Banner_Rectangle">
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(542)</visible>
+            <control type="group">
+                <control type="fixedlist" id="542">
+                   <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1130)</oninfo>
+                    <animation effect="slide" start="0" end="136" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">Conditional</animation>
+                    <animation effect="slide" start="0" end="210" condition="Container.Content(albums) | Container.Content(songs)">Conditional</animation>
+                    <top>PosterPad</top>
+                    <height>640</height>
+                    <centerleft>50%</centerleft>
+                    <width>1560</width>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>542</onup>
+                    <ondown>542</ondown>
+                    <focusposition>1</focusposition>
+                    <movement>2</movement>
+                    <preloaditems>2</preloaditems>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="539">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="1288" height="106" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">
+                        <control type="label">
+                            <left>0</left>
+                            <centertop>34</centertop>
+                            <width>100%</width>
+                            <height>52</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>SmallBold</font>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
+                        </control>
+                       
+                       <!--CHANGES-->
+                        <control type="label">
+                            <centerbottom>34</centerbottom>
+                            <left>0</left>
+                            <width>100%</width>
+                            <height>52</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Year,,  •  ]$INFO[ListItem.Studio,,  •  ]$INFO[ListItem.Rating]</label>
+                            <font>Flag</font>
+                            <textcolor>Dark3</textcolor>
+                            <selectedcolor>Dark3</selectedcolor>
+                            <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                         </control>
+                       <!--END-->
+                    </itemlayout>
+
+                    
+                    <focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)">
+                        <control type="image">
+                            <left>110</left>
+                            <top>10</top>
+                            <right>110</right>
+                            <bottom>10</bottom>
+                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>110</left>
+                            <top>10</top>
+                            <width>427</width>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
+                        </control>
+                        <control type="image">
+                            <right>124</right>
+                            <top>29</top>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched]</texture>
+                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                        </control>
+                        <control type="label">
+                            <left>557</left>
+                            <right>174</right>
+                            <top>20</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>557</left>
+                            <right>130</right>
+                            <top>70</top>
+                            <height>188</height>
+                            <align>justify</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <label>$VAR[LabelPlotBox]</label>
+                        </control>
+                       
+                        <control type="label">
+                            <left>557</left>
+                            <right>130</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <visible>!Container.Content(seasons)</visible>
+                            <label fallback="19055">$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        </control>
+                             
+                        <control type="label">
+                            <left>557</left>
+                            <right>130</right>
+                            <bottom>20</bottom>
+                            <aligny>center</aligny>
+                            <height>38</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
+                            <visible>Container.Content(seasons)</visible>
+                            <label fallback="19055">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[31215]]</label>
+                        </control>
+                    </focusedlayout>
+                </control>
+
+                <include>Furniture_Scrollbar</include>
+            </control>
+        </control>
+    </include>
+	
+	
+</includes>
