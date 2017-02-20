@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window id="2003">
     <defaultcontrol always="true">9000</defaultcontrol>
+	<onload>RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
 
     <zorder>0</zorder>
     <onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
@@ -446,33 +447,9 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours)] hrs $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)] mins</label>
+                                <label fallback="19055">$VAR[LabelDuration]</label>
                                 <aligny>center</aligny>
                             </control>
-							<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours))</visible>
-                        </control>
-						
-						<control type="group">
-
-                            <height>36</height>
-                            <control type="label">
-                                <width>100%</width>
-                                <height>36</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <label>[B]$LOCALIZE[2050][/B]</label>
-                                <aligny>center</aligny>
-                            </control>
-                            <control type="label">
-                                <left>150</left>
-                                <right>420</right>
-                                <height>36</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)] mins</label>
-                                <aligny>center</aligny>
-                            </control>
-							<visible>isEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours))</visible>
                         </control>
 						
                         <control type="group">
