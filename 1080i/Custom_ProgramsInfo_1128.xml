@@ -157,14 +157,6 @@
 						<onclick condition="String.IsEqual(ListItem.Property(platform),ListItem.Label)">Action(Select,1)</onclick>	
                    </control>
 				   
-				    <control type="button" id ="32">
-                        <description>Launch ann Open</description>
-						<label>MAnual test</label>
-						<include>DefInfoButtons</include>
-						<!--<onclick>Action(Close)</onclick>-->
-						<onclick>pdf.pdf_read(QAMSC2,D:\)</onclick>
-                   </control>
-
                     <control type="button" id="9">
                         <description>Trailer button</description>
                         <label>20410</label>
