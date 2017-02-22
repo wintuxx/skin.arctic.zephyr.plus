@@ -63,11 +63,11 @@
         <value>$LOCALIZE[19055]</value>
     </variable>
     <variable name="LabelDuration">
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20368])">$INFO[ListItem.Date]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[552])">$INFO[ListItem.Date]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20074])">$INFO[ListItem.MPAA]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567])">$INFO[ListItem.PlayCount]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20368]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Date]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[552]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Date]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20074]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.MPAA]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.DateAdded]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.PlayCount]</value>
 		<value condition="[!IntegerGreaterThan(ListItem.Duration,59)]">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
         <value condition="[!IntegerGreaterThan(ListItem.Duration,99) + SubString(ListItem.Duration,6,Left)]">1 h 0$VAR[Durat_min]</value>
         <value condition="[!IntegerGreaterThan(ListItem.Duration,99) + SubString(ListItem.Duration,7,Left)]">1 h 1$VAR[Durat_min]</value>
