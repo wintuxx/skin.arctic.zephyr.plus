@@ -129,7 +129,7 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="FanartImage">
-		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(furniture.fanartvshow) + [Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(furniture.fanartvshows) + [Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(furniture.fanartmovies) + Container.Content(movies)">$INFO[ListItem.Art(landscape)]</value>
 		<!--<value condition="!IsEmpty(ListItem.Art(season.fanart)) + Skin.HasSetting(furniture.fanart)">$INFO[ListItem.Art(season.fanart)]</value>
 		<value condition="!IntegerGreaterThan(ListItem.Season,9) + Container.Content(seasons) + !isEmpty(ListItem.Season) + !Skin.HasSetting(furniture.fanart)">$INFO[ListItem.Path]$INFO[ListItem.Season,season0,-landscape.jpg]</value>
