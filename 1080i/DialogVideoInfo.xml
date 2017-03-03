@@ -40,6 +40,20 @@
 					<right>SidePad</right>
 					<aspectratio align="right" aligny="top">keep</aspectratio>
 					<texture colordiffuse="Dark1">resource://resource.images.studios.white/$INFO[Window(Home).Property(SkinHelper.ListItem.Studio),,.png]</texture>
+					<visible>!Skin.HasSetting(furniture.studiocolor)</visible>
+					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)</visible>
+				</control>
+				
+				<control type="image" id="1235">
+					<description>Studio Logo</description>
+					<posy>80</posy>
+					<width>140</width>
+					<height>140</height>
+					<right>SidePad</right>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<texture>resource://resource.images.studios.coloured/$INFO[Window(Home).Property(SkinHelper.ListItem.Studio),,.png]</texture>
+					<visible>Skin.HasSetting(furniture.studiocolor)</visible>
 					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
 					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)</visible>
 				</control>
