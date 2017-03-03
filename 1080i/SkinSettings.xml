@@ -384,6 +384,16 @@
                         <onclick>Skin.ToggleSetting(furniture.studiorecord)</onclick>
                     </control>
 					
+					<control type="radiobutton" id="9300" description="Studios color">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>Show coloured logos</label>
+                        <selected>Skin.HasSetting(furniture.studiocolor)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.studiocolor)</onclick>
+						<enable>Skin.HasSetting(furniture.studiorecord)</enable>
+                    </control>
+					
 					<control type="radiobutton" id="9289" description="Show CharacterArt ">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9106)</visible>
