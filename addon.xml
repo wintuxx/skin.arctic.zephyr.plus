@@ -17,6 +17,7 @@
         <import addon="resource.images.weathericons.white" version="0.0.6"/>
 	<import addon="resource.images.recordlabels.white" version="0.0.7"/>
 	<import addon="resource.images.studios.white" version="0.0.10"/>
+	<import addon="resource.images.studios.coloured" version="0.0.8"/>
     </requires>
     <extension
     point="xbmc.gui.skin"
