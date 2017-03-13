@@ -174,7 +174,7 @@
 
                     <control type="button" id="10">
                         <description>Artwork</description>
-                        <label>1</label>
+                        <label>Artwork</label>
 						<width>260</width>
                         <include>DefInfoButtons</include>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
@@ -185,7 +185,7 @@
 					
                     <control type="button" id="17">
                         <description>Artwork</description>
-                        <label>1</label>
+                        <label>Artwork</label>
 						<width>260</width>
                         <include>DefInfoButtons</include>
 						<onclick condition="Control.IsVisible(50)">SendClick(1128,5)</onclick>
@@ -316,7 +316,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -326,7 +326,7 @@
                             </control>
                         </control>
 						
-                        <control type="group">
+                        <!-- <control type="group">
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -337,7 +337,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -345,7 +345,7 @@
                                 <label fallback="19055">$INFO[ListItem.Rating]</label>
                                 <aligny>center</aligny>
                             </control>
-                        </control>
+                        </control>-->
 						
                         <control type="group">
                             <height>36</height>
@@ -358,7 +358,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -379,12 +379,56 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
                                 <label fallback="19055">$INFO[ListItem.Studio]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						<control type="group">
+							<visible>!String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[31296][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>170</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(nplayers)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+						
+						<control type="group">
+						<visible>!String.IsEqual(ListItem.Property(platform),ListItem.Label)</visible>
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[563][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>170</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[ListItem.Property(esrb)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -397,11 +441,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Platform[/B]</label>
+                                <label>[B]$LOCALIZE[31289][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -555,19 +599,19 @@
                      </item>
 					<item id="2">
 	                    <icon>$INFO[ListItem.Art(boxfront)]</icon>
-	                    <label>Boxfront</label>
+	                    <label>31291</label>
 	                    <visible>!isEmpty(ListItem.Art(boxfront))</visible>
 						<onclick>9505</onclick>
                      </item>
                      <item id="3">
                     <icon>$INFO[ListItem.Art(boxback)]</icon>
-                    <label>Boxback</label>
+                    <label>31292</label>
                      <visible>!isEmpty(ListItem.Art(boxback))</visible>
 					<onclick>9505</onclick>
                      </item>
 					<item id="4">
                     <icon>$INFO[ListItem.Art(title)]</icon>
-                    <label>Title</label>
+                    <label>31290</label>
                     <visible>!isEmpty(ListItem.Art(title))</visible>
 					<onclick>9505</onclick>
                      </item>
@@ -579,13 +623,13 @@
                     </item>
 					<item id="6">
                     <icon>$INFO[ListItem.Art(cartridge)]</icon>
-                    <label>Snapshot</label>
+                    <label>$LOCALIZE[31293]  •  $LOCALIZE[31294]</label>
                      <visible>!isEmpty(ListItem.Art(cartridge))</visible>
 					<onclick>9505</onclick>
                     </item>
 					<item id="7">
                     <icon>$INFO[ListItem.Art(map)]</icon>
-                    <label>Game Map</label>
+                    <label>31295</label>
                      <visible>!isEmpty(ListItem.Art(map))</visible>
 					<onclick>9505</onclick>
                     </item>
@@ -696,19 +740,19 @@
                      </item>
 					<item id="2">
 	                    <icon>$INFO[ListItem.Art(boxfront)]</icon>
-	                    <label>Cabinet</label>
+	                    <label>31297</label>
 	                    <visible>!isEmpty(ListItem.Art(boxfront))</visible>
 						<onclick>9506</onclick>
                      </item>
                      <item id="3">
                     <icon>$INFO[ListItem.Art(boxback)]</icon>
-                    <label>Control Panel</label>
+                    <label>31298</label>
                      <visible>!isEmpty(ListItem.Art(boxback))</visible>
 					<onclick>9506</onclick>
                      </item>
 					<item id="4">
                     <icon>$INFO[ListItem.Art(title)]</icon>
-                    <label>Title</label>
+                    <label>31290</label>
                     <visible>!isEmpty(ListItem.Art(title))</visible>
 					<onclick>9506</onclick>
                      </item>
@@ -726,7 +770,7 @@
                     </item>
 					<item id="7">
                     <icon>$INFO[ListItem.Art(map)]</icon>
-                    <label>Game Map</label>
+                    <label>31295</label>
                      <visible>!isEmpty(ListItem.Art(map))</visible>
 					<onclick>9506</onclick>
                     </item>

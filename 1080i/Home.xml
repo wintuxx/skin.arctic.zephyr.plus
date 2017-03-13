@@ -2,7 +2,8 @@
 <!-- Foundation -->
 <window id="0">
     <defaultcontrol always="true">300</defaultcontrol>
-
+	<onload>SetProperty(SkinHelper.WidgetContainer,300)</onload>
+	<onload>SetProperty(SkinHelper.WidgetContainer,301)</onload>
     <onload>RunScript(script.favourites)</onload>
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|x1111|x1112|x1113|x1114|x1115|x1116|x1117|x1118|x1119)</onload>
 
@@ -27,7 +28,7 @@
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
-            <visible>Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+            <visible>Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) </visible>
             <include condition="!Skin.HasSetting(home.vertical)">GlobalBackgroundExtended</include>
             <include condition="!Skin.HasSetting(home.vertical)">Furniture_Header</include>
             <include condition="!Skin.HasSetting(home.vertical)">Furniture_NowPlaying</include>
@@ -35,4 +36,5 @@
             <include condition="!Skin.HasSetting(home.vertical)">Furniture_Weather</include>
         </control>
     </controls>
+	<onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
 </window>

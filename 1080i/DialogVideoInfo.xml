@@ -42,7 +42,7 @@
 					<texture colordiffuse="Dark1">resource://resource.images.studios.white/$INFO[Window(Home).Property(SkinHelper.ListItem.Studio),,.png]</texture>
 					<visible>!Skin.HasSetting(furniture.studiocolor)</visible>
 					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
-					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)</visible>
+					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)+ Skin.HasSetting(furniture.studiorecord) | !IsEmpty(Window(10025).Property(PlayingBackgroundMedia))+ Skin.HasSetting(furniture.studiorecord)</visible>
 				</control>
 				
 				<control type="image" id="1235">
@@ -55,7 +55,7 @@
 					<texture>resource://resource.images.studios.coloured/$INFO[Window(Home).Property(SkinHelper.ListItem.Studio),,.png]</texture>
 					<visible>Skin.HasSetting(furniture.studiocolor)</visible>
 					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
-					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)</visible>
+					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying)+ Skin.HasSetting(furniture.studiorecord) | !IsEmpty(Window(10025).Property(PlayingBackgroundMedia))+ Skin.HasSetting(furniture.studiorecord)</visible>
 				</control>
 
                 <!-- Arrows -->
@@ -133,8 +133,8 @@
                     <onup condition="Control.IsVisible(9501)">9501</onup>
                     <onup condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</onup>
                     <ondown condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</ondown>
-					<onleft>SetFocus(61)</onleft>
-					<onleft>61</onleft>
+					<onleft condition="!container.content(episodes)">SetFocus(61)</onleft>
+					<onleft condition="!container.content(episodes)">61</onleft>
                     <orientation>horizontal</orientation>
 
                     <control type="button" id ="8">
@@ -149,6 +149,12 @@
                         <include>DefInfoButtons</include>
                         <visible>!IsEmpty(ListItem.Trailer)</visible>
                     </control>
+					
+					<control type="button" id="7">
+						<description>Set my rating</description>
+						<label>$VAR[SetSee]</label>
+                        <include>DefInfoButtons</include>
+					</control>
 
                     <control type="button" id="53">
                         <include>DefInfoButtons</include>
@@ -205,6 +211,14 @@
                         <onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
                         <visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
                     </control>
+					
+					<control type="button" id="106">
+						<description>TvTunes</description>
+						<include>DefInfoButtons</include>
+						<label>$LOCALIZE[31299]</label>
+						<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
+						<visible>Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes) + [Container.Content(movies) | Container.Content(tvshows)] + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
+					</control>
 
                     <control type="button" id ="6">
                         <description>Refresh</description>
@@ -285,23 +299,31 @@
                     <label>$VAR[LabelVideoInfoCastDirector]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
-
-                <control type="group">
-                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
-                    <left>540</left>
+				
+				<control type="group">
+                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))+ !Control.HasFocus(61)</visible>
+					<animation type="Visible">
+							<effect type="slide" start="300,0" end="0,0"  easing="out" time="500" delay="0" reversible="false" />
+							<effect type="fade" start="0" end="100" time="200" delay="300" reversible="false"/>
+						</animation>
+						
+						<animation type="Hidden">
+							<effect type="slide" end="-100,0"  easing="inout" time="500" delay="0"/>
+							<effect type="fade" start="100" end="0" time="200" delay="0" />
+						</animation>
                     <right>SidePad</right>
-                    <bottom>224</bottom>
                     <top>PosterPad</top>
 				
                     <control type="image">
-					<visible>Skin.HasSetting(furniture.discart)</visible>
+						<visible>Skin.HasSetting(furniture.discart)</visible>
+
                         <right>0</right>
                         <width>410</width>
                         <height>410</height>
 						<fadetime>300</fadetime>
 						<animation effect="fade" time="200" delay="5000">Hidden</animation>
 						
-					<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Skin.HasSetting(furniture.discartAnim) | Skin.HasSetting(furniture.discartAnimFull) + !Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="-28" center="auto" time="500" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="-15" center="auto" time="500" delay="500" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
@@ -310,7 +332,7 @@
                     <texture>$INFO[ListItem.Art(discart)]</texture>
                     </control>
 					
-					 <control type="image">
+					<control type="image">
                         <right>0</right>
                         <width>410</width>
                         <height>410</height>
@@ -325,7 +347,42 @@
 						<texture>$INFO[ListItem.Art(tvshow.characterart)]</texture>
 						<visible>Skin.HasSetting(furniture.cart)</visible>
                     </control>
-					
+				</control>
+				
+				<control type="group">
+				
+                    <visible>IsEmpty(Window.Property(content))+ Control.HasFocus(61)</visible>
+				
+					<animation type="Visible">
+							<effect type="slide" start="300,0" end="0,0"  easing="out" time="500" delay="0" reversible="false" />
+							<effect type="fade" start="0" end="100" time="200" delay="300" reversible="false"/>
+						</animation>
+						
+						<animation type="Hidden">
+							<effect type="slide" end="-100,0"  easing="inout" time="500" delay="0"/>
+							<effect type="fade" start="100" end="0" time="200" delay="0" />
+						</animation>
+						<right>SidePad</right>
+						<top>PosterPad</top>
+						
+						<control type="image">
+							<aspectratio align="right">keep</aspectratio>
+							<right>0</right>
+							<height>280</height>
+							<width>410</width>
+							<fadetime>300</fadetime>
+						<texture>$INFO[ListItem.Art(clearart)]</texture>
+						</control>
+						
+				</control>
+
+                <control type="group">
+                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <bottom>224</bottom>
+                    <top>PosterPad</top>
+
                     <control type="grouplist">
                         <left>30</left>
                         <right>30</right>
@@ -358,7 +415,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Status)]</label>
+                                <label fallback="19055"> </label>
                                 <aligny>center</aligny>
                             </control>
 							<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
@@ -412,12 +469,12 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Year]</label>
+                                <label fallback="19055">$INFO[ListItem.year]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -434,7 +491,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -455,7 +512,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -477,7 +534,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -498,7 +555,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -519,7 +576,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -541,7 +598,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -563,7 +620,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -585,7 +642,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -607,7 +664,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -618,7 +675,7 @@
                             </control>
                             <control type="grouplist">
                                 <orientation>horizontal</orientation>
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <top>2</top>
                                 <height>28</height>
@@ -727,7 +784,6 @@
 					<top>115</top>
 					<control type="grouplist">
                         <left>30</left>
-                        <right>30</right>
                         <itemgap>0</itemgap>
 						
 						<control type="group">
@@ -738,11 +794,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Airs[/B]</label>
+                                <label>[B]$LOCALIZE[31212][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -760,11 +816,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Awards[/B]</label>
+                                <label>[B]$LOCALIZE[31281][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -781,11 +837,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Box Office[/B]</label>
+                                <label>[B]$LOCALIZE[31282][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -805,17 +861,28 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Budget[/B]</label>
+                                <label>[B]$LOCALIZE[31140][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
                                 <label fallback="19055">$$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted)]</label>
                                 <aligny>center</aligny>
+								<visible>!Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Budget.formatted),0)</visible>
+                            </control>
+							<control type="label">
+                                <left>170</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$LOCALIZE[19055]</label>
+                                <aligny>center</aligny>
+								<visible>Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Budget.formatted),0)</visible>
                             </control>
 							<visible>Container.Content(movies)</visible>
                         </control>
@@ -828,18 +895,31 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Revenue[/B]</label>
+                                <label>[B]$LOCALIZE[31284][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
                                 <label fallback="19055">$$INFO[Window(Home).Property(SkinHelper.ListItem.Revenue.formatted)]</label>
                                 <aligny>center</aligny>
+								<visible>!Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Revenue.formatted),0)</visible>
                             </control>
+							
+							<control type="label">
+                                <left>170</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$LOCALIZE[19055]</label>
+                                <aligny>center</aligny>
+								<visible>Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Revenue.formatted),0)</visible>
+                            </control>
+							
 							<visible>Container.Content(movies)</visible>
                         </control>
 						
@@ -851,11 +931,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Country[/B]</label>
+                                <label>[B]$LOCALIZE[574][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -874,16 +954,16 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Last Ep.[/B]</label>
+                                <label> </label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>420</right>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Title)]</label>
+                                <label> </label>
                                 <aligny>center</aligny>
                             </control>
 							<visible>!Container.Content(movies)</visible>
@@ -901,7 +981,7 @@
 							<width>100%</width>
                             <height>36</height>
                             <font>Tiny</font>
-							<label>[B]Critics Consensus[/B]</label>
+							<label>[B]$LOCALIZE[31288][/B]</label>
 						</control>							
                         <control type="textbox">					
                             <width>100%</width>
@@ -911,7 +991,7 @@
                             <textcolor>Dark2</textcolor>
                             <align>justify</align>
                         </control>
-						<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus)) | Container.Content(movies)</visible>
+						<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))</visible>
 					</control>
 					
 					<control type="grouplist">
@@ -919,13 +999,27 @@
 							<left>30</left>
 							<right>435</right>
 							<itemgap>0</itemgap>
-						<control type="label">
-							<textcolor>Dark1</textcolor>
-							<width>100%</width>
+						<control type="group">
+
                             <height>36</height>
-                            <font>Tiny</font>
-							<label>[B]Last Episode Plot[/B]</label>
-						</control>							
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[31300][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>185</left>
+                                <right>420</right>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Title)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>						
                         <control type="textbox">					
                             <width>100%</width>
                             <height>85</height>
@@ -934,7 +1028,7 @@
                             <textcolor>Dark2</textcolor>
                             <align>justify</align>
                         </control>
-						<visible>isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))+!Container.Content(movies)</visible>
+						<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.LastEpisode.Plot)) + isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))+!Container.Content(movies)</visible>
 					</control>
 					
 					 <control type="grouplist">
@@ -946,7 +1040,7 @@
 							<width>100%</width>
                             <height>36</height>
                             <font>Tiny</font>
-							<label>[B]Cast and Role[/B]</label>
+							<label>[B]$LOCALIZE[206] $LOCALIZE[1397] $LOCALIZE[38033][/B]</label>
 						</control>							
                         <control type="textbox">					
                             <width>100%</width>
@@ -968,7 +1062,7 @@
 							<width>100%</width>
                             <height>36</height>
                             <font>Tiny</font>
-							<label>[B]Last Episode Guest Stars[/B]</label>
+							<label>[B]$LOCALIZE[31301][/B]</label>
 						</control>							
                         <control type="textbox">					
                             <width>100%</width>
@@ -985,13 +1079,12 @@
 					
 					<control type="grouplist">
 					<left>30</left>
-                    <right>30</right>
 					<orientation>horizontal</orientation>
-					<itemgap>30</itemgap>
+					<itemgap>46</itemgap>
 					<top>175</top>
 					<control type="group">
 					<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
-						<width>185</width>
+						<width>200</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
@@ -1017,11 +1110,11 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Avg Rating: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating)]/10</label>
+                                <label>$LOCALIZE[563]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating)]/10</label>
                                 <aligny>center</aligny>
                             </control>
 							
-							<control type="label">
+							<control type="textbox">
                                 <posy>94</posy>
                                 <height>36</height>
                                 <font>Mini</font>
@@ -1036,14 +1129,23 @@
 					
 					<control type="group">
 					<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
-						<width>185</width>
+						<width>190</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
 							<height>64</height>
 							<aspectratio align="center">keep</aspectratio>
-							<texture  condition="IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter), 59)">flags/ratings/like.png</texture>
-							<texture condition="!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter), 59)">flags/ratings/didntlike.png</texture>
+							<texture>flags/ratings/like.png</texture>
+							<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter), 59)</visible>
+						</control>
+						
+						<control type="image">
+							<align>left</align>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>flags/ratings/didntlike.png</texture>
+							<visible>!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter), 59)</visible>
 						</control>
 						
 						<control type="label">
@@ -1063,18 +1165,18 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>User Rating: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserRating)]/5</label>
+                                <label>$LOCALIZE[563]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserRating)]/5</label>
                                 <aligny>center</aligny>
                             </control>
 							
-							<control type="label">
+							<control type="textbox">
                                 <posy>94</posy>
                                 <height>36</height>
                                 <font>Mini</font>
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Users: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserReviews)]</label>
+                                <label>$LOCALIZE[31286]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserReviews)]</label>
                                 <aligny>center</aligny>
                             </control>
 						
@@ -1083,7 +1185,7 @@
 					
 					<control type="group">
 						<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
-						<width>195</width>
+						<width>155</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
@@ -1092,7 +1194,7 @@
 							<texture>flags/ratings/imdb.png</texture>
 						</control>
 						
-						<control type="label">
+						<!--<control type="label">
 							<align>right</align>
 							<height>64</height>
 							<font>Tiny</font>
@@ -1101,11 +1203,10 @@
 							<aligny>top</aligny>
 							<top>25</top>
 		
-						</control>
+						</control>-->
 						
 						<control type="label">
 							<align>right</align>
-							<right>40</right>
 							<height>64</height>
 							<font>LargeRatings</font>
 							<textcolor>Dark1</textcolor>
@@ -1114,16 +1215,16 @@
 
 						</control>
 						
-						<control type="label">
+						<control type="textbox">
                                 <posy>64</posy>
                                 <height>36</height>
                                 <font>Mini</font>
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Votes: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.IMDB)]</label>
+                                <label>$LOCALIZE[205]: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.IMDB)]</label>
                                 <aligny>center</aligny>
-                            </control>
+                         </control>
 						
 						<control type="label">
                                 <posy>94</posy>
@@ -1132,7 +1233,7 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Top 250: $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>
+                                <label>$LOCALIZE[13409]: $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>
                                 <aligny>center</aligny>
 								<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
                             </control>
@@ -1141,7 +1242,7 @@
 					<control type="group">
 						<visible>Container.Content(movies)</visible>
 						<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)</visible>
-						<width>195</width>
+						<width>150</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
@@ -1152,18 +1253,7 @@
 						
 						<control type="label">
 							<align>right</align>
-							<height>64</height>
-							<font>Tiny</font>
-							<textcolor>Dark1</textcolor>
-							<label fallback="N/A">[B]/10[/B]</label>
-							<aligny>top</aligny>
-							<top>25</top>
-		
-						</control>
-						
-						<control type="label">
-							<align>right</align>
-							<right>40</right>
+				
 							<height>64</height>
 							<font>LargeRatings</font>
 							<textcolor>Dark1</textcolor>
@@ -1179,25 +1269,25 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Votes: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.TMDB)]</label>
+                                <label>$LOCALIZE[205]: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.TMDB)]</label>
                                 <aligny>center</aligny>
                             </control>
 							
-							<control type="label">
+							<!--<control type="textbox">
                                 <posy>94</posy>
                                 <height>36</height>
                                 <font>Mini</font>
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Popularity: $INFO[Window(Home).Property(SkinHelper.ListItem.Popularity)]</label>
+                                <label>$LOCALIZE[31287]: $INFO[Window(Home).Property(SkinHelper.ListItem.Popularity)]</label>
                                 <aligny>center</aligny>
-                            </control>
+                            </control>-->
 					</control>
 					
 					<control type="group">
 						<visible>!Container.Content(movies) + !isEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))</visible>
-						<width>195</width>
+						<width>155</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
@@ -1209,21 +1299,9 @@
 						<control type="label">
 							<align>right</align>
 							<height>64</height>
-							<font>Tiny</font>
-							<textcolor>Dark1</textcolor>
-							<label fallback="N/A">[B]/10[/B]</label>
-							<aligny>top</aligny>
-							<top>25</top>
-		
-						</control>
-						
-						<control type="label">
-							<align>right</align>
-							<right>40</right>
-							<height>64</height>
 							<font>LargeRatings</font>
 							<textcolor>Dark1</textcolor>
-							<label fallback="N/A">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)][/B]</label>
+							<label fallback="N/A">[B]$VAR[tvdbRate][/B]</label>
 							<aligny>center</aligny>
 		
 						</control>
@@ -1235,14 +1313,15 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>Votes: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.TVDB)]</label>
+                                <label>$LOCALIZE[205]: $INFO[Window(Home).Property(SkinHelper.ListItem.Votes.TVDB)]</label>
                                 <aligny>center</aligny>
                             </control>
 						
 					</control>
 					
-					<!--<control type="group">
-						<width>185</width>
+					<control type="group">
+					<visible>!isEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
+						<width>195</width>
 						<control type="image">
 							<align>left</align>
 							<width>64</width>
@@ -1268,11 +1347,45 @@
 								<aligny>center</aligny>
 								<align>center</align>
                                 <textcolor>Dark2</textcolor>
-                                <label>On Metacritic: $INFO[Window(Home).Property(SkinHelper.ListItem.Rating.MC)]%</label>
+                                <label>Metacritic</label>
+                                <aligny>center</aligny>
+                            </control>
+							
+					</control>
+					
+					<control type="group">
+					<visible>!isEmpty(ListItem.UserRating)</visible>
+						<width>150</width>
+						<control type="image">
+							<align>left</align>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorHighlight]">flags/ratings/myrating.png</texture>
+						</control>
+							
+						<control type="label">
+							<align>right</align>
+							<height>64</height>
+							<font>LargeRatings</font>
+							<textcolor>Dark1</textcolor>
+							<label fallback="N/A">[B]$VAR[UserRate][/B]</label>
+							<aligny>center</aligny>
+
+						</control>
+						
+						<control type="label">
+                                <posy>64</posy>
+                                <height>36</height>
+                                <font>Mini</font>
+								<aligny>center</aligny>
+								<align>center</align>
+                                <textcolor>Dark2</textcolor>
+                                <label>38018</label>
                                 <aligny>center</aligny>
                             </control>
 						
-					</control>-->
+					</control>
 				</control>
 				</control>
 						</control>

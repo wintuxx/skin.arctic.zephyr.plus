@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window id="2001">
     <defaultcontrol always="true">9000</defaultcontrol>
-	
+	<onload>ClearProperty(script.extendedinfo.isactive)</onload>
 	<zorder>0</zorder>
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(tracklist)</onload>
@@ -46,7 +46,7 @@
 					<aspectratio align="right" aligny="top">keep</aspectratio>
 					<texture colordiffuse="Dark1">resource://resource.images.recordlabels.white/$INFO[ListItem.Property(Album_Label),,.png]</texture>
 					<visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
-					<visible>!Skin.HasSetting(furniture.nowplaying) + !Player.Playing</visible>
+					<visible>!Skin.HasSetting(furniture.nowplaying) + ![Player.Playing | Player.Paused] + Skin.HasSetting(furniture.studiorecord) | Skin.HasSetting(furniture.nowplaying) | !IsEmpty(Window(10025).Property(PlayingBackgroundMedia))</visible>
 				</control>
 
 				<!-- Arrows -->
@@ -205,12 +205,12 @@
                         <visible>!Skin.HasSetting(global.kioskmode)</visible>
                     </control>
 					
-					<control type="button" id="7">
+					<control type="button" id="32">
 						<description>Set my rating</description>
-						<label>38023</label>
-						<width>260</width>
+						<label>$VAR[SetSee]</label>
+						 <onclick>SendClick(7)</onclick>
                         <include>DefInfoButtons</include>
-						<label>222</label>
+						<visible>Container.Content(songs) | Container.Content(albums)</visible>
 					</control>
 
                     <control type="button" id ="10">
@@ -247,12 +247,13 @@
 					    <width>410</width>
 					    <height>410</height>
 						<fadetime>300</fadetime>
-					<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Skin.HasSetting(furniture.discartAnim) | Skin.HasSetting(furniture.discartAnimFull) + !Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="360" center="auto" time="5000" loop="true" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="-28" center="auto" time="500" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="-15" center="auto" time="500" delay="500" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation>
 					<animation effect="rotate" end="-3" center="auto" time="250" delay="1000" reversible="false" condition="ListItem.IsPlaying + Player.Paused + Skin.HasSetting(furniture.discartAnim)">Conditional</animation> 
-                        <texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="special://skin/extras/cdart/cdart_mask.png">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.DiscArt)]</texture>
+					<aspectratio align="center">keep</aspectratio>
+                    <texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="special://skin/extras/cdart/cdart_mask.png">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.DiscArt)]</texture>
                     </control>
 					
                     <control type="grouplist">
@@ -289,7 +290,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -309,7 +310,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -330,7 +331,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -351,12 +352,12 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.UserRating]</label>
+                                <label fallback="19055">$INFO[ListItem.Rating]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -372,7 +373,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -389,11 +390,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Type[/B]</label>
+                                <label>[B]$LOCALIZE[564][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -410,11 +411,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Styles[/B]</label>
+                                <label>[B]$LOCALIZE[176][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -431,11 +432,11 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]Mood[/B]</label>
+                                <label>[B]$LOCALIZE[175][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>500</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -463,7 +464,7 @@
                                 <aligny>top</aligny>
                             </control>
                             <control type="textbox">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>0</right>
                                 <height>120</height>
                                 <font>Tiny</font>
@@ -487,7 +488,7 @@
                                 <aligny>top</aligny>
                             </control>
                             <control type="textbox">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>439</width>
                                 <height>120</height>
                                 <font>Tiny</font>
@@ -541,7 +542,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -571,7 +572,7 @@
                                 <visible>IsEmpty(ListItem.Property(Artist_Born))</visible>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -601,7 +602,7 @@
                                 <visible>IsEmpty(ListItem.Property(Artist_Died))</visible>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -621,7 +622,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <width>100%</width>
                                 <height>36</height>
                                 <font>Tiny</font>
@@ -644,7 +645,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <left>150</left>
+                                <left>170</left>
                                 <top>6</top>
                                 <width>100%</width>
                                 <height>24</height>
@@ -670,7 +671,7 @@
                                 <aligny>center</aligny>
                             </control>
                             <control type="textbox" id="4">
-                                <left>150</left>
+                                <left>170</left>
                                 <right>0</right>
                                 <height>240</height>
                                 <font>Tiny</font>

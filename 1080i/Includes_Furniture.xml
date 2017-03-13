@@ -154,31 +154,58 @@
     </variable>
 	
 	
-	
-    <!-- MusicFlags -->
-    <variable name="MusicFlagstar1">
+	<!-- MyratingMusic -->
+    <variable name="MusicFlagstarMy1">
         <value condition="IntegerGreaterThan(ListItem.UserRating,1)">star10</value>
         <value condition="IntegerGreaterThan(ListItem.UserRating,0)">star5</value>
         <value>star0</value>
     </variable>
-    <variable name="MusicFlagstar2">
+    <variable name="MusicFlagstarMy2">
         <value condition="IntegerGreaterThan(ListItem.UserRating,3)">star10</value>
         <value condition="IntegerGreaterThan(ListItem.UserRating,2)">star5</value>
         <value>star0</value>
     </variable>
-    <variable name="MusicFlagstar3">
+    <variable name="MusicFlagstarMy3">
         <value condition="IntegerGreaterThan(ListItem.UserRating,5)">star10</value>
         <value condition="IntegerGreaterThan(ListItem.UserRating,4)">star5</value>
         <value>star0</value>
     </variable>
-    <variable name="MusicFlagstar4">
+    <variable name="MusicFlagstarMy4">
         <value condition="IntegerGreaterThan(ListItem.UserRating,7)">star10</value>
         <value condition="IntegerGreaterThan(ListItem.UserRating,6)">star5</value>
         <value>star0</value>
     </variable>
-    <variable name="MusicFlagstar5">
+    <variable name="MusicFlagstarMy5">
         <value condition="IntegerGreaterThan(ListItem.UserRating,9)">star10</value>
         <value condition="IntegerGreaterThan(ListItem.UserRating,8)">star5</value>
+        <value>star0</value>
+    </variable>
+	
+	
+    <!-- MusicFlags -->
+    <variable name="MusicFlagstar1">
+        <value condition="Integer.IsGreaterOrEqual(ListItem.Rating,1)">star10</value>
+        <value condition="Integer.IsEqual(ListItem.Rating,0) + [String.Contains(ListItem.Rating,.1) | String.Contains(ListItem.Rating,.2) | String.Contains(ListItem.Rating,.3) | String.Contains(ListItem.Rating,.4) | String.Contains(ListItem.Rating,.5) | String.Contains(ListItem.Rating,.6) | String.Contains(ListItem.Rating,.7) | String.Contains(ListItem.Rating,.8) | String.Contains(ListItem.Rating,.9)]">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar2">
+        <value condition="Integer.IsGreaterOrEqual(ListItem.Rating,2)">star10</value>
+        <value condition="Integer.IsEqual(ListItem.Rating,1) + [String.Contains(ListItem.Rating,.1) | String.Contains(ListItem.Rating,.2) | String.Contains(ListItem.Rating,.3) | String.Contains(ListItem.Rating,.4) | String.Contains(ListItem.Rating,.5) | String.Contains(ListItem.Rating,.6) | String.Contains(ListItem.Rating,.7) | String.Contains(ListItem.Rating,.8) | String.Contains(ListItem.Rating,.9)]">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar3">
+        <value condition="Integer.IsGreaterOrEqual(ListItem.Rating,3)">star10</value>
+		 <value condition="Integer.IsEqual(ListItem.Rating,2) + [String.Contains(ListItem.Rating,.1) | String.Contains(ListItem.Rating,.2) | String.Contains(ListItem.Rating,.3) | String.Contains(ListItem.Rating,.4) | String.Contains(ListItem.Rating,.5) | String.Contains(ListItem.Rating,.6) | String.Contains(ListItem.Rating,.7) | String.Contains(ListItem.Rating,.8) | String.Contains(ListItem.Rating,.9)]">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar4">
+        <value condition="Integer.IsGreaterOrEqual(ListItem.Rating,4)">star10</value>
+		 <value condition="Integer.IsEqual(ListItem.Rating,3) + [String.Contains(ListItem.Rating,.1) | String.Contains(ListItem.Rating,.2) | String.Contains(ListItem.Rating,.3) | String.Contains(ListItem.Rating,.4) | String.Contains(ListItem.Rating,.5) | String.Contains(ListItem.Rating,.6) | String.Contains(ListItem.Rating,.7) | String.Contains(ListItem.Rating,.8) | String.Contains(ListItem.Rating,.9)]">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar5">
+		<value condition="Integer.IsEqual(ListItem.Rating,5)">star10</value>
+        <value condition="Integer.IsEqual(ListItem.Rating,4) + [String.Contains(ListItem.Rating,.1) | String.Contains(ListItem.Rating,.2) | String.Contains(ListItem.Rating,.3) | String.Contains(ListItem.Rating,.4) | String.Contains(ListItem.Rating,.5) | String.Contains(ListItem.Rating,.6) | String.Contains(ListItem.Rating,.7) | String.Contains(ListItem.Rating,.8) | String.Contains(ListItem.Rating,.9)]">star5</value>
         <value>star0</value>
     </variable>
 
@@ -193,7 +220,7 @@
 	
 	<include name="Furniture_Music_Flags">
         <control type="grouplist">
-		<visible>Container.Content(albums) | Container.Content(songs)</visible>
+		<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists)</visible>
         <visible>!Skin.HasSetting(furniture.flags)</visible>
 		<include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -205,44 +232,50 @@
             <align>left</align>
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
-			<control type="image">
-                <width>64</width>
-                <height>64</height>
-                <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar1].png</texture>
-            </control>
-            <control type="image">
-                <posx>-48</posx>
-                <width>64</width>
-                <height>64</height>
-                <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar2].png</texture>
-                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
-            </control>
-            <control type="image">
-                <posx>-48</posx>
-                <width>64</width>
-                <height>64</height>
-                <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar3].png</texture>
-                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
-            </control>
-            <control type="image">
-                <posx>-48</posx>
-                <width>64</width>
-                <height>64</height>
-                <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar4].png</texture>
-                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
-            </control>
-            <control type="image">
-                <posx>-48</posx>
-                <width>64</width>
-                <height>64</height>
-                <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar5].png</texture>
-                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
-            </control>
+				<control type="image">
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar1].png</texture>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar2].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar3].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar4].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstar5].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				
             <control type="label">
                 <left>-16</left>
                 <width min="48">auto</width>
@@ -254,7 +287,68 @@
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
                 <visible>Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Container.Content(albums)</visible>
             </control>
+			
+				<control type="image">
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstarMy1].png</texture>
+					<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstarMy2].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstarMy3].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstarMy4].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				<control type="image">
+					<posx>-48</posx>
+					<width>64</width>
+					<height>64</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/$VAR[MusicFlagstarMy5].png</texture>
+					<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+					<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				
+			
+			<control type="label">
+                <left>-16</left>
+                <width min="48">auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.UserRating]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Container.Content(songs)+!IsEmpty(ListItem.UserRating)</visible>
+            </control>
+			
 			
 			<control type="image">
                 <width>88</width>
@@ -305,7 +399,7 @@
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
-                <visible>[substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)]+ !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)+ !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                <visible>[[substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons)] + !IsEmpty(ListItem.VideoResolution)]+ !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left)+ !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                 <centertop>50%</centertop>
                 <width>64</width>
                 <height>64</height>
@@ -600,7 +694,7 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[ListItem.Duration,, $LOCALIZE[31102]  ]</label>
+                <label>$VAR[LabelDuration]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
                 <visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55)]</visible>
@@ -1085,7 +1179,7 @@
         <value condition="Player.HasVideo + VideoPlayer.Content(episodes) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/tv.png</value>
         <value condition="Player.HasVideo + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/eye.png</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">special://skin/extras/icons/youtube.png</value>
-        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">special://skin/extras/icons/info.png</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)  | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml)">special://skin/extras/icons/info.png</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">special://skin/extras/icons/tvguide.png</value>
         <value condition="SubString(Container.FolderPath,sources://,Left)">special://skin/extras/icons/files.png</value>
         <value condition="SubString(Container.FolderPath,special://videoplaylists/,Left)">special://skin/extras/icons/playlist.png</value>
@@ -1145,7 +1239,7 @@
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">[CAPITALIZE]$LOCALIZE[4][/CAPITALIZE]</value>
         <value condition="[Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-info.xml)] + IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + IsEmpty(Control.GetLabel(199))">$LOCALIZE[283]</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">$LOCALIZE[31141]</value>
-        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$LOCALIZE[31241]</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml)">$LOCALIZE[31241]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://tvshows/titles/)">$LOCALIZE[20343]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://movies/,Left)">$INFO[Container.FolderName]</value>
@@ -1185,6 +1279,8 @@
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">$INFO[Window.Property(Filter_Label),,  ]$INFO[Window.Property(TotalItems),, $LOCALIZE[31101]]</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(NextAired.Total),,[/COLOR] $LOCALIZE[20343]]</value>
         <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$LOCALIZE[31242]</value>
+		<value condition="Window.IsVisible(DialogAddonInfo.xml)">$LOCALIZE[24000] $LOCALIZE[19033]</value> 
+		<value condition="Window.IsVisible(DialogMusicInfo.xml)">$LOCALIZE[2] $LOCALIZE[19033]</value> 
         <value condition="[Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-info.xml)] + IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + IsEmpty(Control.GetLabel(199))">$VAR[GlobalSearchHeaderLabel]</value>
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31239] [COLOR=$VAR[ColorHighlight]]$VAR[ColorHighlight][/COLOR]  •  $LOCALIZE[31240] [COLOR=$INFO[Control.GetLabel(9500)]]$INFO[Control.GetLabel(9500)][/COLOR]</value>
@@ -1327,7 +1423,7 @@
                 <textcolor>Dark2</textcolor>
                 <align>right</align>
                 <width>50%</width>
-                <label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+                <label>$INFO[System.Date]</label>
             </control>
             <control type="label">
                 <centertop>92</centertop>
@@ -1404,7 +1500,7 @@
             <visible>!Window.IsVisible(DialogNotification.xml)</visible>
             <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
             <include>Animation.FurnitureFadeInOut</include>
-            <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
+            <visible>IsEmpty(Window(10025).Property(PlayingBackgroundMedia))</visible>
             <visible>!Window.IsActive(DialogNotification.xml)</visible>
             <visible>Player.HasMedia</visible>
             <visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>

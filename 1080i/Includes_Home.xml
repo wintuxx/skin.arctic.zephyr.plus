@@ -49,7 +49,8 @@
             <include>Animation.FadeIn.Slide</include>
             <include>Animation.FadeOut</include>
             <visible>!Skin.HasSetting(home.showheader)</visible>
-            <visible>Player.HasMedia</visible>
+			<visible>Player.HasMedia</visible>
+            <visible>IsEmpty(Window(10025).Property(PlayingBackgroundMedia))</visible>
             <visible>!Control.HasFocus(301) | [Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.showheader)]</visible>
             <animation effect="slide" end="0,100" time="150" condition="[[!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogNotification.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
             <control type="image">
@@ -2212,7 +2213,7 @@
     <include name="Home-Widget-Vertical">
         <control type="list" id="301">
             <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
-            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
+            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>-->
             <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
             <include>Animation.FadeIn</include>
             <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
