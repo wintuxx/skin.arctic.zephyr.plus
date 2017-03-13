@@ -651,3 +651,91 @@ msgstr "Vignettes Fanart"
 msgctxt "#31259"
 msgid "Extra fanart"
 msgstr "Extra fanart"
+
+msgctxt "#31281"
+msgid "Awards"
+msgstr "Prix"
+
+msgctxt "#31282"
+msgid "Box Office"
+msgstr "Box-Office"
+
+msgctxt "#31284"
+msgid "Revenue"
+msgstr "Revenu"
+
+msgctxt "#31285"
+msgid "Reviews"
+msgstr "Avis"
+
+msgctxt "#31286"
+msgid "Users"
+msgstr "Utilisateurs"
+
+msgctxt "#31287"
+msgid "Popularity"
+msgstr "Popularité"
+
+msgctxt "#31288"
+msgid "Critics Consensus"
+msgstr "Consensus des Critiques"
+
+msgctxt "#31289"
+msgid "Platform"
+msgstr "Plate-forme"
+
+msgctxt "#31290"
+msgid "Title"
+msgstr "Titre"
+
+msgctxt "#31291"
+msgid "Cover"
+msgstr "Couverture"
+
+msgctxt "#31292"
+msgid "Back Cover"
+msgstr "Quatrième de Couverture"
+
+msgctxt "#31293"
+msgid "Cartridge"
+msgstr "Cartouche"
+
+msgctxt "#31294"
+msgid "Disc"
+msgstr "Disque"
+
+msgctxt "#31295"
+msgid "Game Map"
+msgstr "Carte du Jeu"
+
+msgctxt "#31296"
+msgid "Players"
+msgstr "Joueurs"
+
+msgctxt "#31297"
+msgid "Arcade Machine"
+msgstr "Machine d'arcade"
+
+msgctxt "#31298"
+msgid "Control Panel"
+msgstr "Panneau de Contrôle"
+
+msgctxt "#31299"
+msgid "Theme Song"
+msgstr "Chanson du thème"
+
+msgctxt "#31300"
+msgid "Last Episode"
+msgstr "Dernier Épisode"
+
+msgctxt "#31301"
+msgid "Last Episode Guest Stars"
+msgstr "Dernier Épisode Invités"
+
+msgctxt "#31302"
+msgid "Animated Fanart"
+msgstr "Fanart Animé"
+
+msgctxt "#31303"
+msgid "Animated Poster"
+msgstr "Affiche Animé"
