@@ -551,3 +551,95 @@ msgstr "Вертикальное"
 msgctxt "#31252"
 msgid "Weather Forecast"
 msgstr "Прогноз погоды"
+
+msgctxt "#31281"
+msgid "Awards"
+msgstr "Награды"
+
+msgctxt "#31282"
+msgid "Box Office"
+msgstr "Кассовый Сбор"
+
+msgctxt "#31140"
+msgid "Budget"
+msgstr "Бюджет"
+
+msgctxt "#31284"
+msgid "Revenue"
+msgstr "Сборы"
+
+msgctxt "#31285"
+msgid "Reviews"
+msgstr "рецензия"
+
+msgctxt "#31286"
+msgid "Users"
+msgstr "Пользователи"
+
+msgctxt "#31287"
+msgid "Popularity"
+msgstr "Популярность"
+
+msgctxt "#31288"
+msgid "Critics Consensus"
+msgstr "Мнение Критиков"
+
+msgctxt "#31289"
+msgid "Platform"
+msgstr "Платформа"
+
+msgctxt "#31290"
+msgid "Title"
+msgstr "заглавие"
+
+msgctxt "#31291"
+msgid "Cover"
+msgstr "Обложка"
+
+msgctxt "#31292"
+msgid "Back Cover"
+msgstr "Задняя обложка"
+
+msgctxt "#31293"
+msgid "Cartridge"
+msgstr "Картридж"
+
+msgctxt "#31294"
+msgid "Disc"
+msgstr "Диск"
+
+msgctxt "#31295"
+msgid "Game Map"
+msgstr "Карта игры"
+
+msgctxt "#31296"
+msgid "Players"
+msgstr "Jugadores"
+
+msgctxt "#31297"
+msgid "Arcade Machine"
+msgstr "Máquina de Arcade"
+
+msgctxt "#31298"
+msgid "Control Panel"
+msgstr "Панель управления"
+
+msgctxt "#31299"
+msgid "Theme Song"
+msgstr "Тематическая песня"
+
+msgctxt "#31300"
+msgid "Last Episode"
+msgstr "Последний эпизод"
+
+msgctxt "#31301"
+msgid "Last Episode Guest Stars"
+msgstr "Гости последнего эпизода"
+
+msgctxt "#31302"
+msgid "Animated Fanart"
+msgstr "фан-арт анимационный"
+
+msgctxt "#31303"
+msgid "Animated Poster"
+msgstr "Постеры анимационный"
