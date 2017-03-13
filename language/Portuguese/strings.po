@@ -395,3 +395,91 @@ msgstr "Vertical"
 msgctxt "#31252"
 msgid "Weather Forecast"
 msgstr "Previsão Metereológica"
+
+msgctxt "#31281"
+msgid "Awards"
+msgstr "Prémios"
+
+msgctxt "#31282"
+msgid "Box Office"
+msgstr "Bilheteira"
+
+msgctxt "#31284"
+msgid "Revenue"
+msgstr "Receita"
+
+msgctxt "#31285"
+msgid "Reviews"
+msgstr "Análises"
+
+msgctxt "#31286"
+msgid "Users"
+msgstr "Utilizadores"
+
+msgctxt "#31287"
+msgid "Popularity"
+msgstr "Popularidade"
+
+msgctxt "#31288"
+msgid "Critics Consensus"
+msgstr "Consenso de Críticos"
+
+msgctxt "#31289"
+msgid "Platform"
+msgstr "Plataforma"
+
+msgctxt "#31290"
+msgid "Title"
+msgstr "Título"
+
+msgctxt "#31291"
+msgid "Cover"
+msgstr "Capa"
+
+msgctxt "#31292"
+msgid "Back Cover"
+msgstr "Contracapa"
+
+msgctxt "#31293"
+msgid "Cartridge"
+msgstr "Cartucho"
+
+msgctxt "#31294"
+msgid "Disc"
+msgstr "Disco"
+
+msgctxt "#31295"
+msgid "Game Map"
+msgstr "Mapa do Jogo"
+
+msgctxt "#31296"
+msgid "Players"
+msgstr "Jogadores"
+
+msgctxt "#31297"
+msgid "Arcade Machine"
+msgstr "Máquina Arcade"
+
+msgctxt "#31298"
+msgid "Control Panel"
+msgstr "Painel de Controlo"
+
+msgctxt "#31299"
+msgid "Theme Song"
+msgstr "Tema Musical"
+
+msgctxt "#31300"
+msgid "Last Episode"
+msgstr "Último Episódio"
+
+msgctxt "#31301"
+msgid "Last Episode Guest Stars"
+msgstr "Actores Convidados no Último Episódio"
+
+msgctxt "#31302"
+msgid "Animated Fanart"
+msgstr "Fanart Animada"
+
+msgctxt "#31303"
+msgid "Animated Poster"
+msgstr "Póster Animado"
