@@ -735,3 +735,91 @@ msgstr ""
 msgctxt "#31280"
 msgid "Pixel format"
 msgstr ""
+
+msgctxt "#31281"
+msgid "Awards"
+msgstr ""
+
+msgctxt "#31282"
+msgid "Box Office"
+msgstr ""
+
+msgctxt "#31284"
+msgid "Revenue"
+msgstr ""
+
+msgctxt "#31285"
+msgid "Reviews"
+msgstr ""
+
+msgctxt "#31286"
+msgid "Users"
+msgstr ""
+
+msgctxt "#31287"
+msgid "Popularity"
+msgstr ""
+
+msgctxt "#31288"
+msgid "Critics Consensus"
+msgstr ""
+
+msgctxt "#31289"
+msgid "Platform"
+msgstr ""
+
+msgctxt "#31290"
+msgid "Title"
+msgstr ""
+
+msgctxt "#31291"
+msgid "Cover"
+msgstr ""
+
+msgctxt "#31292"
+msgid "Back Cover"
+msgstr ""
+
+msgctxt "#31293"
+msgid "Cartridge"
+msgstr ""
+
+msgctxt "#31294"
+msgid "Disc"
+msgstr ""
+
+msgctxt "#31295"
+msgid "Game Map"
+msgstr ""
+
+msgctxt "#31296"
+msgid "Players"
+msgstr ""
+
+msgctxt "#31297"
+msgid "Arcade Machine"
+msgstr ""
+
+msgctxt "#31298"
+msgid "Control Panel"
+msgstr ""
+
+msgctxt "#31299"
+msgid "Theme Song"
+msgstr ""
+
+msgctxt "#31300"
+msgid "Last Episode"
+msgstr ""
+
+msgctxt "#31301"
+msgid "Last Episode Guest Stars"
+msgstr ""
+
+msgctxt "#31302"
+msgid "Animated Fanart"
+msgstr ""
+
+msgctxt "#31303"
+msgid "Animated Poster"
+msgstr ""
