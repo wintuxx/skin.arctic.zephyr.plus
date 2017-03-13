@@ -499,3 +499,95 @@ msgstr "Fanart de clima"
 msgctxt "#31252"
 msgid "Weather Forecast"
 msgstr "Pronóstico del Tiempo"
+
+msgctxt "#31281"
+msgid "Awards"
+msgstr "Premios"
+
+msgctxt "#31282"
+msgid "Box Office"
+msgstr "Taquilla"
+
+msgctxt "#31284"
+msgid "Revenue"
+msgstr "Ingresos"
+
+msgctxt "#31285"
+msgid "Reviews"
+msgstr "Comentarios"
+
+msgctxt "#31286"
+msgid "Users"
+msgstr "Usuarios"
+
+msgctxt "#31287"
+msgid "Popularity"
+msgstr "Popularidad"
+
+msgctxt "#31288"
+msgid "Critics Consensus"
+msgstr "Consenso de los Críticos"
+
+msgctxt "#31289"
+msgid "Platform"
+msgstr "Plataforma"
+
+msgctxt "#31290"
+msgid "Title"
+msgstr "Título"
+
+msgctxt "#31291"
+msgid "Cover"
+msgstr "Cubierta"
+
+msgctxt "#31292"
+msgid "Back Cover"
+msgstr "Contraportada"
+
+msgctxt "#31293"
+msgid "Cartridge"
+msgstr "Cartucho"
+
+msgctxt "#31294"
+msgid "Disc"
+msgstr "Desct"
+
+msgctxt "#31295"
+msgid "Game Map"
+msgstr "Mapa del juego"
+
+msgctxt "#31140"
+msgid "Budget"
+msgstr "Presupuesto"
+
+msgctxt "#31296"
+msgid "Players"
+msgstr "Jugadores"
+
+msgctxt "#31297"
+msgid "Arcade Machine"
+msgstr "Máquina de Arcade"
+
+msgctxt "#31298"
+msgid "Control Panel"
+msgstr "Panel de control"
+
+msgctxt "#31299"
+msgid "Theme Song"
+msgstr "Tema musical"
+
+msgctxt "#31300"
+msgid "Last Episode"
+msgstr "Ultimo Episodio"
+
+msgctxt "#31301"
+msgid "Last Episode Guest Stars"
+msgstr "Invitados del Ultimo Episodio"
+
+msgctxt "#31302"
+msgid "Animated Fanart"
+msgstr "Fanart Animada"
+
+msgctxt "#31303"
+msgid "Animated Poster"
+msgstr "Póster Animado"
