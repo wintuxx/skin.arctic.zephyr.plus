@@ -30,7 +30,7 @@ msgstr "TV en direct"
 
 msgctxt "#31104"
 msgid "Used Memory"
-msgstr "Mémoire utilisée[nbsp]"
+msgstr "Mémoire utilisée"
 
 msgctxt "#31105"
 msgid "Spotlight"
