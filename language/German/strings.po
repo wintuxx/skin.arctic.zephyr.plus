@@ -254,7 +254,7 @@ msgstr "[B]Konfiguriere Bilder[/B][CR][CR] • Anzeige der Bilder festlegen[CR] 
 
 msgctxt "#31160"
 msgid "[B]Configure Weather Settings[/B][CR][CR] •     Set up to three cities"
-msgstr "[B]Konfiguriere Wetter[/B][CR][CR] • Konfiguriere bis zu 3 Städte"
+msgstr "[B]Konfiguriere Wetter[/B][CR][CR] • Konfiguriere bis zu drei Städte"
 
 msgctxt "#31161"
 msgid "[B]Configure System Settings[/B][CR][CR] •     Setup and calibrate displays[CR] •     Configure audio output[CR] •     Setup remote controls[CR] •     Set power saving options[CR] •     Enable debugging[CR] •     Setup master lock"
@@ -618,7 +618,7 @@ msgstr "Vertikal"
 
 msgctxt "#31251"
 msgid "Weather Fanart"
-msgstr "Wetter Fanart"
+msgstr "Wetter-Fanart"
 
 msgctxt "#31252"
 msgid "Weather Forecast"
@@ -630,7 +630,7 @@ msgstr "Info und OSD-Steuerelemente in der Musikvisualisierung immer anzeigen"
 
 msgctxt "#31254"
 msgid "Show plot overlay after 3 second delay"
-msgstr "Handlung nach 3 Sekunden Verzögerung einblenden"
+msgstr "Handlung nach drei Sekunden Verzögerung einblenden"
 
 msgctxt "#31255"
 msgid "Show info overlay"
@@ -678,7 +678,7 @@ msgstr "Popularität"
 
 msgctxt "#31288"
 msgid "Critics Consensus"
-msgstr "Kritiker Konsens"
+msgstr "Kritiker-Konsens"
 
 msgctxt "#31289"
 msgid "Platform"
@@ -734,8 +734,8 @@ msgstr "Letzte Episodengäste"
 
 msgctxt "#31302"
 msgid "Animated Fanart"
-msgstr "Fanart Animiert"
+msgstr "Animiertes Fanart"
 
 msgctxt "#31303"
 msgid "Animated Poster"
-msgstr "Poster Animiert"
+msgstr "Animiertes Poster"
