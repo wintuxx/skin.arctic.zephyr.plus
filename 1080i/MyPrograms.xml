@@ -3,7 +3,7 @@
 <window id="1">
     <defaultcontrol always="true">500</defaultcontrol>
     <menucontrol>9000</menucontrol>
-    <views>500,550,50,70,80,56,566,567,57,53,503,533,55,855,955,58,581,582,59,54,541,542,51,52</views>
+    <views>500,550,50,70,80,56,566,567,57,53,503,533,55,855,955,58,581,582,59,54,555,541,542,51,52</views>
 
     <controls>
 
@@ -322,6 +322,27 @@
                     <selected>Skin.HasSetting(furniture.overlayinfo)</selected>
                     <onclick>Skin.ToggleSetting(furniture.overlayinfo)</onclick>
                 </control>
+				
+				<control type="radiobutton" id="9029" description="Enable Title Image">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>Title image</label>
+                    <selected>Skin.HasSetting(furniture.titleImage)</selected>
+                    <onclick>Skin.ToggleSetting(furniture.titleImage)</onclick>
+					<onclick condition="Skin.HasSetting(furniture.snapImage)">Skin.ToggleSetting(furniture.snapImage)</onclick>
+                    <visible>[substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + [Skin.HasSetting(55wallprograms.showinfo)+Control.IsVisible(55) | Skin.HasSetting(59wall.showinfo)+Control.IsVisible(59) | Control.IsVisible(555) | Skin.HasSetting(555wall.showinfo)+ Control.IsVisible(955) |Skin.HasSetting(855wall.showinfo)+Control.IsVisible(855) | Skin.HasSetting(56mediaprograms.showinfo)+Control.IsVisible(56) | Skin.HasSetting(56mediaprograms.low)+Control.IsVisible(56) | !Skin.HasSetting(57listprograms.low)+Control.IsVisible(57)]</visible>
+                </control>
+				
+				<control type="radiobutton" id="9030" description="Enable Snap Image">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>Snap Image</label>
+                    <selected>Skin.HasSetting(furniture.snapImage)</selected>
+                    <onclick>Skin.ToggleSetting(furniture.snapImage)</onclick>
+					<onclick condition="Skin.HasSetting(furniture.titleImage)">Skin.ToggleSetting(furniture.titleImage)</onclick>
+                    <visible>[substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)] + [Skin.HasSetting(55wallprograms.showinfo)+Control.IsVisible(55) | Skin.HasSetting(59wall.showinfo)+Control.IsVisible(59) | Control.IsVisible(555) | Skin.HasSetting(555wall.showinfo)+ Control.IsVisible(955) |Skin.HasSetting(855wall.showinfo)+Control.IsVisible(855) | Skin.HasSetting(56mediaprograms.showinfo)+Control.IsVisible(56) | Skin.HasSetting(56mediaprograms.low)+Control.IsVisible(56) | !Skin.HasSetting(57listprograms.low)+Control.IsVisible(57)]</visible>
+                </control>
+				
 
                 <control type="radiobutton" id="9022" description="Enable Extra Fanart">
                     <include>DefContextButton</include>

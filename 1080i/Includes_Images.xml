@@ -131,6 +131,8 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="FanartImage">
+		<value condition="[substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)]+Skin.HasSetting(furniture.titleImage)">$INFO[ListItem.Art(title)]</value>
+		<value condition="[substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)]+Skin.HasSetting(furniture.snapImage)">$INFO[ListItem.Art(snap)]</value>
 		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(furniture.fanartvshows) + [Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(furniture.fanartmovies) + Container.Content(movies)">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(animatedfanart)) + Skin.HasSetting(furniture.AnimatedFanart) + !Container.Content(episodes)">$INFO[ListItem.Art(animatedfanart)]</value>
