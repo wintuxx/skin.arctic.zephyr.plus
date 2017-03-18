@@ -33,6 +33,13 @@
                 <width>510</width>
                 <height max="839">auto</height>
                 <itemgap>0</itemgap>
+				<control type="button" id="3689">
+					<description>Movie Set Information</description>
+					<label>14116</label>
+					<onclick>ActivateWindow(1131)</onclick>
+					<include>DefContextButton</include>
+					<visible>Container.Content(sets)</visible>
+				</control>
                 <control type="button" id="1000">
                     <description>Buttons</description>
                     <include>DefContextButton</include>

@@ -4,6 +4,7 @@
     <include name="View_52_BigList"><include>View_52_BigList_SinglePane</include></include>
     <include name="View_52_BigList_SinglePane">
         <description>List View (id=52)</description>
+		<oninfo condition="ListItem.IsCollection">ActivateWindow(1131)</oninfo>
         <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1129)</oninfo>
         <control type="group">
             <include>Animation.Common</include>

@@ -11,6 +11,7 @@
 
             <control type="group">
                 <control type="panel" id="500">
+				   <oninfo condition="ListItem.IsCollection">ActivateWindow(1131)</oninfo>
                    <visible> !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
                     <top>206</top>
                     <left>70</left>

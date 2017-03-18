@@ -19,6 +19,7 @@
                     <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                 </control>
                 <control type="wraplist" id="51">
+					<oninfo condition="ListItem.IsCollection">ActivateWindow(1131)</oninfo>
                     <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
                     <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
                     <width>1112</width>
@@ -98,7 +99,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelDuration]$INFO[ListItem.Rating,  •  ]</label>
-                        <visible>!Container.Content(movies) + !Container.Content(episodes) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)</visible>
+                        <visible>!Container.Content(movies) + !Container.Content(episodes) + !substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)+!Container.Content(sets)</visible>
                     </control>
                     
                     <!--CHANGED-->
@@ -124,7 +125,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelYear,,  •  ]$VAR[LabelDuration]$INFO[ListItem.Rating,  •  ]</label>
-                        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+                        <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)</visible>
                     </control>
                     <control type="image">
                         <centerleft>12</centerleft>
@@ -197,6 +198,7 @@
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" start="0" end="-90" time="0" condition="![substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)| Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
                         <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+						<animation effect="slide" start="0" end="165" time="0" condition="Container.Content(sets)">Conditional</animation>
                     </control>
                     <control type="label">
                         <right>154</right>
@@ -531,6 +533,7 @@
                     <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                 </control>
                 <control type="wraplist" id="51">
+					<oninfo condition="ListItem.IsCollection">ActivateWindow(1131)</oninfo>
                     <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
                     <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
                     <left>0</left>
@@ -590,7 +593,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelYear]</label>
-                        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+                        <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)</visible>
                     </control>
                     
                     <!--CHANGES-->
@@ -618,7 +621,10 @@
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" start="0" end="-90" time="0" condition="![substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)| Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
                         <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+						<animation effect="slide" start="0" end="165" time="0" condition="Container.Content(sets)">Conditional</animation>
                     </control>
+					
+					
                     <control type="label">
                         <right>154</right>
                         <width>500</width>
@@ -672,6 +678,7 @@
             <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
         </control>
         <control type="wraplist" id="51">
+			<oninfo condition="ListItem.IsCollection">ActivateWindow(1131)</oninfo>
             <oninfo condition="substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left)">ActivateWindow(1128)</oninfo>
             <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.mame.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
             <left>0</left>

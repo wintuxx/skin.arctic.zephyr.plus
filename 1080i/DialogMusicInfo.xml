@@ -180,7 +180,7 @@
 
 					<control type="button" id ="9005">
                         <description>Most Loved Tracks</description>
-                        <label>Loved Tracks</label>
+                        <label>31306</label>
                         <width>260</width>
 						<onclick>SetProperty(content,3)</onclick>
                         <onclick>SetFocus(9503)</onclick>
@@ -748,7 +748,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[ListItem.Artist] • Most Loved Tracks</label>
+                    <label>$INFO[ListItem.Artist] • $LOCALIZE[31306]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
 				

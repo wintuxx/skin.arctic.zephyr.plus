@@ -33,6 +33,7 @@
     <variable name="LabelYear">
         <value condition="Container.Content(tvshows) + stringcompare(Container.SortMethod,$LOCALIZE[20360])">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
         <value condition="[Container.Content(tvshows) | Container.Content(episodes)] + stringcompare(Container.SortMethod,$LOCALIZE[568])">$INFO[ListItem.LastPlayed]</value>
+		<value condition="Container.Content(sets) + !Control.IsVisible(50) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(555)">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
         <value condition="!IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
     </variable>
@@ -68,6 +69,7 @@
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20074]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.MPAA]</value>
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.DateAdded]</value>
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) + !Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.PlayCount]</value>
+		<value condition="Container.Content(sets)">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),, h ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),, $LOCALIZE[31102]]</value>
 		<value condition="[!IntegerGreaterThan(ListItem.Duration,59)]">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
         <value condition="[!IntegerGreaterThan(ListItem.Duration,99) + SubString(ListItem.Duration,6,Left)]">1 h 0$VAR[Durat_min]</value>
         <value condition="[!IntegerGreaterThan(ListItem.Duration,99) + SubString(ListItem.Duration,7,Left)]">1 h 1$VAR[Durat_min]</value>
@@ -97,7 +99,7 @@
         <value condition="[Container.Content(tvshows) + !Control.IsVisible(54) + !Control.IsVisible(555)] | Container.Content(episodes)">$VAR[LabelYear]</value>
     </variable>
     <variable name="LabelPlotBox">
-        <value condition="!Control.IsVisible(54) + !Control.IsVisible(541) + !Control.IsVisible(542) + !Control.IsVisible(50) + !Control.IsVisible(70) + !Control.IsVisible(80) + !Control.IsVisible(58) + !Control.IsVisible(581) + !Control.IsVisible(582) +  !IsEmpty(Window(home).Property(SkinHelper.ListItem.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(SkinHelper.ListItem.ExtendedPlot)]</value>
+       <value condition="!Control.IsVisible(54) + !Control.IsVisible(541) + !Control.IsVisible(542) + !Control.IsVisible(50) + !Control.IsVisible(70) + !Control.IsVisible(80) + !Control.IsVisible(58) + !Control.IsVisible(581) + !Control.IsVisible(582) +  !IsEmpty(Window(home).Property(SkinHelper.ListItem.Plot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(SkinHelper.ListItem.Plot)]</value>
         <value condition="!Control.IsVisible(54) + !Control.IsVisible(541) + !Control.IsVisible(542) + !Control.IsVisible(50) + !Control.IsVisible(70) + !Control.IsVisible(80) + !Control.IsVisible(50) + !Control.IsVisible(58) + !Control.IsVisible(581) + !Control.IsVisible(582) + !IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
         <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
@@ -108,7 +110,7 @@
         <value>$INFO[ListItem.Plot]</value>
     </variable>
     <variable name="LabelOverlayPlot">
-        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(SkinHelper.ListItem.ExtendedPlot)]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Plot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(SkinHelper.ListItem.Plot)]</value>
         <value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
         <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
