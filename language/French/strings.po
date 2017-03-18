@@ -30,7 +30,7 @@ msgstr "TV en direct"
 
 msgctxt "#31104"
 msgid "Used Memory"
-msgstr "Mémoire utilisée"
+msgstr "Mémoire utilisée[nbsp]"
 
 msgctxt "#31105"
 msgid "Spotlight"
@@ -739,3 +739,19 @@ msgstr "Fanart Animé"
 msgctxt "#31303"
 msgid "Animated Poster"
 msgstr "Affiche Animé"
+
+msgctxt "#31304"
+msgid "Game"
+msgstr "Jeu"
+
+msgctxt "#31305"
+msgid "in collection"
+msgstr "en collection"
+
+msgctxt "#31306"
+msgid "Most loved tracks"
+msgstr "Chansons les plus aimées"
+
+msgctxt "#31307"
+msgid "Complete"
+msgstr "Complet"
