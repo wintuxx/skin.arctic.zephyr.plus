@@ -739,3 +739,19 @@ msgstr "Animiertes Fanart"
 msgctxt "#31303"
 msgid "Animated Poster"
 msgstr "Animiertes Poster"
+
+msgctxt "#31304"
+msgid "Game"
+msgstr "Spiel"
+
+msgctxt "#31305"
+msgid "in collection"
+msgstr "in der sammlung"
+
+msgctxt "#31306"
+msgid "Most loved tracks"
+msgstr "Die beliebtesten Tracks"
+
+msgctxt "#31307"
+msgid "Complete"
+msgstr "Komplett"
