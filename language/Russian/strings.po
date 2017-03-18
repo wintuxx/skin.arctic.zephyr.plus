@@ -614,11 +614,11 @@ msgstr "Карта игры"
 
 msgctxt "#31296"
 msgid "Players"
-msgstr "Jugadores"
+msgstr "Игроки"
 
 msgctxt "#31297"
 msgid "Arcade Machine"
-msgstr "Máquina de Arcade"
+msgstr "машина Аркады"
 
 msgctxt "#31298"
 msgid "Control Panel"
@@ -643,3 +643,19 @@ msgstr "фан-арт анимационный"
 msgctxt "#31303"
 msgid "Animated Poster"
 msgstr "Постеры анимационный"
+
+msgctxt "#31304"
+msgid "Game"
+msgstr "Игра"
+
+msgctxt "#31305"
+msgid "in collection"
+msgstr "b коллекции"
+
+msgctxt "#31306"
+msgid "Most loved tracks"
+msgstr "Самые любимые треки"
+
+msgctxt "#31307"
+msgid "Complete"
+msgstr "полный"
