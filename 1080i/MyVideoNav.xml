@@ -243,7 +243,27 @@
                     <label>31259</label>
                     <selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
                     <onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+					<onclick condition="Skin.HasSetting(furniture.AnimatedFanart)">Skin.ToggleSetting(furniture.AnimatedFanart)</onclick>
                     <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9023" description="Animated Fanart">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31302</label>
+                    <selected>Skin.HasSetting(furniture.AnimatedFanart)</selected>
+                    <onclick>Skin.ToggleSetting(furniture.AnimatedFanart)</onclick>
+					<onclick condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service) + Container.Content(movies)</visible>
+                </control>
+				
+				<control type="radiobutton" id="9024" description="Animated Poster">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31303</label>
+                    <selected>Skin.HasSetting(furniture.AnimatedPoster)</selected>
+                    <onclick>Skin.ToggleSetting(furniture.AnimatedPoster)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service) + Container.Content(movies)</visible>
                 </control>
 
                 <!-- Other Options -->
@@ -326,5 +346,4 @@
 
 
     </controls>
-
 </window>
